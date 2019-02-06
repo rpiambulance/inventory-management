@@ -1,0 +1,41 @@
+# Taken from https://www.edureka.co/blog/docker-compose-containerizing-mean-stack-application/
+# Modified by Logan Ramos
+version: '3.0' # specify docker-compose version
+ 
+# Define the services/ containers to be run
+services:
+  angular: # name of the first service
+    build: angular-app # specify the directory of the Dockerfile
+    ports:
+    - "4200:4200"
+    - "49153:49153" # specify port mapping
+    volumes:
+    - ./angular-app:/usr/src/app
+    - /usr/src/app/node_modules/
+ 
+  express: # name of the second service
+    build: express-server # specify the directory of the Dockerfile
+    ports:
+    - "3000:3000" #specify ports mapping
+    links:
+    - database # link this service to the database service
+    volumes:
+    - ./express-server:/usr/src/app
+    - /usr/src/app/node_modules/
+ 
+  mongoex:
+    image: mongo-express
+    environment:
+    - ME_CONFIG_OPTIONS_EDITORTHEME=ambiance
+    - ME_CONFIG_MONGODB_SERVER=database
+    - ME_CONFIG_MONGODB_PORT=27017
+    - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+    ports:
+    - "8081:8081"
+    links:
+    - database
+  
+  database: # name of the third service
+    image: mongo # specify image to build container from
+    ports:
+    - "27017:27017" # specify port forwarding
