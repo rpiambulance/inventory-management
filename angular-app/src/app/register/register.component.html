@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Create Account</h1>
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" formControlName="userName" required>
+      <div [hidden]="registerForm.get('userName').valid || registerForm.get('userName').pristine" class="alert alert-danger">
+        Username is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" formControlName="password" required>
+      <div [hidden]="registerForm.get('password').valid || registerForm.get('password').pristine" class="alert alert-danger">
+        Password is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" required>
+      <div [hidden]="!registerForm.get('confirmPassword').hasError('MatchPassword')" class="alert alert-danger">
+        Passwords do not match!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fname">First Name</label>
+      <input type="text" class="form-control" id="fname" name="firstName" formControlName="firstName" required>
+      <div [hidden]="registerForm.get('firstName').valid || registerForm.get('firstName').pristine" class="alert alert-danger">
+        First Name is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lname">Last Name</label>
+      <input type="text" class="form-control" id="lname" name="lastName" formControlName="lastName" required>
+      <div [hidden]="registerForm.get('lastName').valid || registerForm.get('lastName').pristine" class="alert alert-danger">
+        Last Name is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" class="form-control" id="email" name="lastName" formControlName="emailAddress" required>
+      <div [hidden]="registerForm.get('emailAddress').valid || registerForm.get('emailAddress').pristine" class="alert alert-danger">
+        Email Address is required!
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Submit</button>
+
+  </form>
+</div>
