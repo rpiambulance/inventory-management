@@ -1,5 +1,12 @@
-<p>
-  Adding items goes here
+<h2 align="center">Your Inventories:</h2>
+
+<p class="container userInventories">
+
+  <a routerLink="/singleInventory" routerLinkActive="disable">Sample entry, data returned</a>
+  <!-- Use ngFor here to display all inventories 
+      after pulling from data source, Postgres? Mongo? -->
+
+  <!-- href for each inventory-->
 </p>
 
 <p>
@@ -7,7 +14,11 @@
   (does this take the user to a different page?)
 </p>
 
-<p>
-  extra informataion and functions goes here
-  (add, remove, view, generate api code, etc)
+<p class="functions">
+
+    <button type="submit" class="btn btn-success">New Inventory</button><br/>
+    <button type="submit" class="btn btn-info">Generate API</button><br/>
+    <button type="submit" class="btn btn-danger">Manage Inventories</button>
+  <!-- extra informataion and functions goes here
+  (add, remove, view, generate api code, etc) -->
 </p>
