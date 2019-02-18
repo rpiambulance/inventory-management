@@ -6,10 +6,8 @@
   <!-- Use ngFor here to display all inventories 
       after pulling from data source, Postgres? Mongo? -->
 
-  <!-- href for each inventory-->
   <li *ngFor="let inventory of inventories" (click) ="onSelect(inventory)">
     <a routerLink="/single-inventory/{{ inventory }}">{{ inventory }}</a>
-
   </li>
 
 </p>
