@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventoryComponent implements OnInit {
 
+  inventories:Array<string> = ['Inventory1', 'Ambulance', 'Groceries', 'House Supplies', 'Random stuff'];
+  selectedInventory: string;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSelect(inventory: string): void {
+    this.selectedInventory = inventory;
+  }
+
+}
+
+export class Inventory {
+
+  name: string;
+  people: Array<string>;
 }
