@@ -15,7 +15,7 @@ import { RegisterComponent } from './register/register.component';
     AppComponent,
     LoginComponent,
     InventoryComponent,
-    SingleInventoryComponent
+    SingleInventoryComponent,
     RegisterComponent
   ],
   imports: [
