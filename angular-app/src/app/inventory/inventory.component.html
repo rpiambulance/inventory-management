@@ -1,4 +1,4 @@
-<h2 align="center">Your Inventories:</h2>
+<h2 align="center">Hello {{ loggedIn }}, Your Inventories:</h2>
 
 <p class="container userInventories">
 
@@ -10,11 +10,6 @@
     <a routerLink="/single-inventory/{{ inventory }}">{{ inventory }}</a>
   </li>
 
-</p>
-
-<p>
-  if user is logged in, current inventories to view goes here
-  (does this take the user to a different page?)
 </p>
 
 <p class="functions">
