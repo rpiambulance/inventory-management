@@ -4,7 +4,6 @@ import { User } from '../user';
 import { currentUser, MOCK_USERS } from '../mock-data';
 import { GetInventoriesService } from '../get-inventories.service';
 
-
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -52,4 +51,3 @@ export class InventoryComponent implements OnInit {
   }
 
 }
-
