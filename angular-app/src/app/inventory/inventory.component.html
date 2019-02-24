@@ -2,12 +2,12 @@
 
 <p class="container userInventories">
 
-  <a routerLink="/singleInventory" routerLinkActive="disable">Sample entry, data returned</a>
+
   <!-- Use ngFor here to display all inventories 
       after pulling from data source, Postgres? Mongo? -->
 
-  <li *ngFor="let inventory of inventories" (click) ="onSelect(inventory)">
-    <a routerLink="/single-inventory/{{ inventory }}">{{ inventory }}</a>
+  <li *ngFor="let inventory of loggedInInventories" (click) ="onSelect(inventory)">
+    <a routerLink="/single-inventory/{{ inventory.name }}">{{ inventory.name }}</a>
   </li>
 
 </p>

@@ -16,29 +16,26 @@ export class InventoryComponent implements OnInit {
   loggedIn = currentUser
   samplePerson: Inventory;
 
-  inventoriesJSON:Object;
+  inventoriesJSON: Object;
+  
+  loggedInInventories: Object[] = [];
   
   
-  inventories:Array<string> = ['Inventory1', 'Ambulance', 'Groceries', 'House Supplies', 'Random stuff'];
   selectedInventory: string;
 
   constructor(private data: GetInventoriesService) { }
 
   ngOnInit() {
     this.data.getInventories().subscribe(data => {
-      this.inventoriesJSON = data;
-      console.log(this.inventoriesJSON);
+      this.inventoriesJSON = data.inventories;
+      for (var i = 0; i < this.inventoriesJSON.length; i++){
+        if (this.inventoriesJSON[i].access.includes(this.loggedIn)) {
+          this.loggedInInventories.push(this.inventoriesJSON[i]);
+        }
+        
+      }
+      console.log(this.loggedInInventories);
     })
-    // this.samplePerson = new Inventory();
-    // this.samplePerson.items = {
-    //   "tomatoes":10,
-    //   "lettuce": 10,
-    //   "corn": 20,
-    //   "medical supplies": 100,
-    //   "pencils": 100,
-    //   "computers": 1,
-    //   "misc": 30
-    //   }
   }
 
   onSelect(inventory: string): void {

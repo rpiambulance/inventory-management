@@ -9,7 +9,7 @@
         {"radios":5}
       ],
       "access":[
-        1
+        "andrew","bob","charlie"
       ]
     },
     {
@@ -21,7 +21,7 @@
         {"radios":5}
       ],
       "access":[
-        2,3,4
+        "bob","charlie"
       ]
     },
     {
@@ -33,7 +33,7 @@
         {"radios":5}
       ],
       "access":[
-        1,2,5
+        "andrew","bob","charlie"
       ]
     }
     
