@@ -12,23 +12,30 @@ import { GetInventoriesService } from '../get-inventories.service';
 })
 export class InventoryComponent implements OnInit {
 
+  //list of sample users
   users: User[] = MOCK_USERS;
-  loggedIn = currentUser
   samplePerson: Inventory;
 
+  //the initial store of raw data
   inventoriesJSON: Object;
   
+  //the inventories that loggedIn has access to
   loggedInInventories: Object[] = [];
   
-  
+
+  //for later...
   selectedInventory: string;
 
   constructor(private data: GetInventoriesService) { }
 
   ngOnInit() {
+
+    //get the data from the server
     this.data.getInventories().subscribe(data => {
       this.inventoriesJSON = data.inventories;
       for (var i = 0; i < this.inventoriesJSON.length; i++){
+        //add the inventories that the user has access to
+        //TODO: clean up
         if (this.inventoriesJSON[i].access.includes(this.loggedIn)) {
           this.loggedInInventories.push(this.inventoriesJSON[i]);
         }
@@ -38,6 +45,7 @@ export class InventoryComponent implements OnInit {
     })
   }
 
+  //for later...
   onSelect(inventory: string): void {
     this.selectedInventory = inventory;
   }
