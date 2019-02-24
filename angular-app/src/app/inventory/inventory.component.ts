@@ -16,6 +16,7 @@ export class InventoryComponent implements OnInit {
   users: User[] = MOCK_USERS;
   samplePerson: Inventory;
 
+  loggedIn = currentUser
   //the initial store of raw data
   inventoriesJSON: Object;
   
