@@ -9,13 +9,14 @@ import { LoginComponent } from './login/login.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { SingleInventoryComponent } from './single-inventory/single-inventory.component';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     InventoryComponent,
-    SingleInventoryComponent
+    SingleInventoryComponent,
     RegisterComponent
   ],
   imports: [
@@ -23,7 +24,8 @@ import { RegisterComponent } from './register/register.component';
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

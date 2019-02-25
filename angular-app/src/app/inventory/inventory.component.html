@@ -1,20 +1,15 @@
-<h2 align="center">Your Inventories:</h2>
+<h2 align="center">Hello {{ loggedIn }}, Your Inventories:</h2>
 
 <p class="container userInventories">
 
-  <a routerLink="/singleInventory" routerLinkActive="disable">Sample entry, data returned</a>
+
   <!-- Use ngFor here to display all inventories 
       after pulling from data source, Postgres? Mongo? -->
 
-  <li *ngFor="let inventory of inventories" (click) ="onSelect(inventory)">
-    <a routerLink="/single-inventory/{{ inventory }}">{{ inventory }}</a>
+  <li *ngFor="let inventory of loggedInInventories" (click) ="onSelect(inventory)">
+    <a routerLink="/single-inventory/{{ inventory.name }}">{{ inventory.name }}</a>
   </li>
 
-</p>
-
-<p>
-  if user is logged in, current inventories to view goes here
-  (does this take the user to a different page?)
 </p>
 
 <p class="functions">

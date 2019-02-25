@@ -1,0 +1,41 @@
+{
+  "inventories": [
+    {  
+      "name":"ambulance",
+      "items":[
+        {"bandages":100},
+        {"scisscors":10},
+        {"water (in liters)":200},
+        {"radios":5}
+      ],
+      "access":[
+        "andrew","bob","charlie"
+      ]
+    },
+    {
+      "name":"home",
+      "items":[
+        {"bandages":100},
+        {"scisscors":10},
+        {"water (in liters)":200},
+        {"radios":5}
+      ],
+      "access":[
+        "bob","charlie"
+      ]
+    },
+    {
+      "name":"school",
+      "items":[
+        {"bandages":100},
+        {"scisscors":10},
+        {"water (in liters)":200},
+        {"radios":5}
+      ],
+      "access":[
+        "andrew","bob","charlie"
+      ]
+    }
+    
+  ]
+}
