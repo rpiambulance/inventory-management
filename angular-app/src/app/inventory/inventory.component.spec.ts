@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InventoryComponent } from './inventory.component';
-import { SingleInventoryComponent } from '../single-inventory/single-inventory.component'
+import { SingleInventoryComponent } from '../single-inventory/single-inventory.component';
 
 describe('InventoryComponent', () => {
   let component: InventoryComponent;
