@@ -10,6 +10,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { SingleInventoryComponent } from './single-inventory/single-inventory.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     InventoryComponent,
     SingleInventoryComponent,
-    RegisterComponent
+    RegisterComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
