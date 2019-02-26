@@ -30,7 +30,7 @@ export class InventoryComponent implements OnInit {
 
     // get the data from the server
     this.data.getInventories().subscribe(data => {
-      this.inventoriesJSON = data.inventories;
+      this.inventoriesJSON = data;
       for (const inv of this.inventoriesJSON) {
         // add the inventories that the user has access to
         // TODO: clean up
