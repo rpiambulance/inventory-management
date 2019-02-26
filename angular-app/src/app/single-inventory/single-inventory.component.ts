@@ -11,7 +11,7 @@ import { User } from '../user';
 })
 export class SingleInventoryComponent implements OnInit {
 
-  @Input() user: User;
+  @Input() user: string;
   constructor() { }
 
   ngOnInit() {
