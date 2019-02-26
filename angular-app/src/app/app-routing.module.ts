@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inventory', component: InventoryComponent },
   { path: 'single-inventory/:name', component: SingleInventoryComponent },
-  {path: 'register', component: RegisterComponent}
+  { path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({
