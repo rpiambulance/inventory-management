@@ -1,8 +1,7 @@
 <h1>{{ name }}</h1>
-<div *ngFor="let item of thisInv?.items | keyvalue">
-  <div *ngFor="let single of item?.value | keyvalue">
-      <p>{{ single.key }} - {{ single.value }}</p>
+<div *ngFor="let val of thisInv?.items | keyvalue">
+  <div *ngFor="let item of val?.value | keyvalue">
+      <p>{{ item.key }} - {{ item.value }}</p>
   </div>
 </div>
 
-<!-- <p>{{ inventoriesJSON.{{ name }} }}</p> -->
