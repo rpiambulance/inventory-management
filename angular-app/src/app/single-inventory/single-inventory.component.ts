@@ -13,9 +13,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SingleInventoryComponent implements OnInit {
 
-  inventoriesJSON: Inventory[];
+  // name of inventory
   name: string;
+
+  // local copy of inventory contents
   thisInv: Inventory;
+
+  // ActivatedRoute for query params
+  // GetInventoryService for mock data
   constructor(private route: ActivatedRoute, private data: GetInventoriesService) { }
 
   ngOnInit() {
@@ -26,7 +31,6 @@ export class SingleInventoryComponent implements OnInit {
       this.name = params.get(`name`);
       // fetch all inventories
       this.data.getInventories().subscribe(data => {
-        this.inventoriesJSON = data;
 
         // for every inventory
         for (const inv of data) {
