@@ -27,10 +27,14 @@
     {
       "name":"school",
       "items":[
-        {"bandages":100},
+        {"laptops":100},
         {"scisscors":10},
-        {"water (in liters)":200},
-        {"radios":5}
+        {"pencils":10},
+        {"fakeitem":5},
+        {"laptops":100},
+        {"scisscors":10},
+        {"pencils":10},
+        {"fakeitem":5}
       ],
       "people":[
         "andrew","bob","charlie"

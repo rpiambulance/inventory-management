@@ -1,4 +1,7 @@
-<p>
-  {{ selectedInventory }}
-  single-inventory works!
-</p>
+<h1>{{ name }}</h1>
+<div *ngFor="let val of thisInv?.items | keyvalue">
+  <div *ngFor="let item of val?.value | keyvalue">
+      <p>{{ item.key }} - {{ item.value }}</p>
+  </div>
+</div>
+

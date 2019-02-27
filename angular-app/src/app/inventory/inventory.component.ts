@@ -38,7 +38,6 @@ export class InventoryComponent implements OnInit {
           this.loggedInInventories.push(inv);
         }
       }
-      console.log(this.loggedInInventories);
     });
   }
 
