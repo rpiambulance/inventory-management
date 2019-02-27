@@ -14,23 +14,29 @@ import { ActivatedRoute } from '@angular/router';
 export class SingleInventoryComponent implements OnInit {
 
   inventoriesJSON: Inventory[];
-  inv: string;
+  name: string;
   thisInv: Inventory;
-  @Input() user: string;
   constructor(private route: ActivatedRoute, private data: GetInventoriesService) { }
 
   ngOnInit() {
+
+    // getting the name of the inventory to display
     this.route.paramMap.subscribe(params => {
-      this.inv = params.get('name');
-    });
-    // get the data from the server
-    this.data.getInventories().subscribe(data => {
-      this.inventoriesJSON = data;
-      for (const inv of this.inventoriesJSON) {
-        if (inv.name === this.inv) {
-          this.thisInv = new Inventory(inv);
+
+      this.name = params.get(`name`);
+      // fetch all inventories
+      this.data.getInventories().subscribe(data => {
+        this.inventoriesJSON = data;
+
+        // for every inventory
+        for (const inv of data) {
+          if (inv.name === this.name) {
+            // found the inventory
+            // TODO: else case in case inv not found
+            this.thisInv = new Inventory(inv);
+          }
         }
-      }
+      });
     });
   }
 

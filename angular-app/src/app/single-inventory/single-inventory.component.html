@@ -1,11 +1,4 @@
-<div *ngIf="user">
-    <p>{{ user }}, Hello</p>
-    <p>single-inventory works!</p>
-</div>
-
-
-
-<p>{{ inv }}</p>
+<h1>{{ name }}</h1>
 <div *ngFor="let item of thisInv?.items | keyvalue">
   <div *ngFor="let single of item?.value | keyvalue">
       <p>{{ single.key }} - {{ single.value }}</p>
