@@ -3,10 +3,10 @@
     {  
       "name":"ambulance",
       "items":[
-        {"bandages":100},
-        {"scisscors":10},
-        {"water (in liters)":200},
-        {"radios":5}
+        {"name": "bandages", "quantity":100, "barcode":""},
+        {"name": "scissors", "quantity":10, "barcode":""},
+        {"name": "water (in liters)", "quantity":200, "barcode":""},
+        {"name": "radios", "quantity":5, "barcode":""}
       ],
       "people":[
         "andrew","bob","charlie"
@@ -15,10 +15,10 @@
     {
       "name":"home",
       "items":[
-        {"bandages":100},
-        {"scisscors":10},
-        {"water (in liters)":200},
-        {"radios":5}
+        {"name": "bandages", "quantity":100, "barcode":""},
+        {"name": "scissors", "quantity":10, "barcode":""},
+        {"name": "water (in liters)", "quantity":200, "barcode":""},
+        {"name": "radios", "quantity":5, "barcode":""}
       ],
       "people":[
         "bob","charlie"
@@ -27,14 +27,10 @@
     {
       "name":"school",
       "items":[
-        {"laptops":100},
-        {"scisscors":10},
-        {"pencils":10},
-        {"fakeitem":5},
-        {"laptops":100},
-        {"scisscors":10},
-        {"pencils":10},
-        {"fakeitem":5}
+        {"name": "laptops", "quantity":10, "barcode":"ABC123"},
+        {"name": "scissors", "quantity":5, "barcode":""},
+        {"name": "pencils", "quantity":8675309, "barcode":"12345"},
+        {"name": "backpacks", "quantity":15, "barcode":""}
       ],
       "people":[
         "andrew","bob","charlie"
