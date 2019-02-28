@@ -32,9 +32,11 @@ h1{
   font-size: 2rem;
   font-family: 'Raleway';  
   background: aliceblue;
-  padding-left: 25rem; 
+  padding-left: 15rem; 
 }
-
+.form-inline{
+	padding-left: 15rem;	
+}
 
 body{
   font-family: 'Lora';
@@ -44,7 +46,10 @@ body{
   background-size: cover;
   min-height: 75rem;
   padding-top: 2rem;
-}
+  
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;}
 head{
   font-family: 'Lora';
   background: aliceblue;

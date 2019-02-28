@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Create New Inventory</h1>
+  <form (ngSubmit)="onSubmit()" #newInvForm="ngForm">
+    <div class="form-group">
+      <label for="invName">Inventory Name</label>
+      <input type="text" class="form-control" id="invName" [(ngModel)]="model.name" name="invName" #invName="ngModel" required>
+      <div [hidden]="invName.valid || invName.pristine" class="alert alert-danger">
+        Inventory Name is required!
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!newInvForm.form.valid">Submit</button>
+  </form>
+</div>

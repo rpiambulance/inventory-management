@@ -3,6 +3,7 @@ import { Inventory } from '../inventory';
 import { User } from '../user';
 import { currentUser, MOCK_USERS } from '../mock-data';
 import { GetInventoriesService } from '../get-inventories.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inventory',
@@ -24,7 +25,7 @@ export class InventoryComponent implements OnInit {
   // for later...
   selectedInventory: string;
 
-  constructor(private data: GetInventoriesService) { }
+  constructor(private data: GetInventoriesService, public router: Router) { }
 
   ngOnInit() {
 
@@ -38,7 +39,6 @@ export class InventoryComponent implements OnInit {
           this.loggedInInventories.push(inv);
         }
       }
-      console.log(this.loggedInInventories);
     });
   }
 
@@ -47,4 +47,7 @@ export class InventoryComponent implements OnInit {
     this.selectedInventory = inventory;
   }
 
+  newInvButtonClick(): void {
+    this.router.navigate(['newInvForm']);
+  }
 }
