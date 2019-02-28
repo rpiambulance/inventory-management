@@ -7,7 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { SingleInventoryComponent } from './single-inventory/single-inventory.component';
 import { NewInvFormComponent } from './new-inv-form/new-inv-form.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
-import { LandingPageComponent}  rom './landing-page/landing-page.component';
+import { LandingPageComponent}  from './landing-page/landing-page.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
