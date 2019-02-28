@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
 import { Inventory } from './inventory';
+
 @Injectable({
   providedIn: 'root'
 })
-export class GetInventoriesService {
+export class InventoryService {
 
   constructor(private http: HttpClient) { }
 
