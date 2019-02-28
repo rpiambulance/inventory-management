@@ -7,7 +7,7 @@ const app = express();
 const mock = require('./mock-data.json');
 const port = 3000;
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 mongoose.connect('mongodb://database:27017/ims', {useNewUrlParser: true});
 mongoose.Promise = global.Promise;

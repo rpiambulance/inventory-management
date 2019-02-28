@@ -43,6 +43,7 @@ export class SingleInventoryComponent implements OnInit {
             // found the inventory
             // TODO: else case in case inv not found
             this.thisInv = new Inventory(inv);
+            break;
           }
         }
       });
@@ -50,7 +51,7 @@ export class SingleInventoryComponent implements OnInit {
   }
 
   // Opens up the add item form modal
-  open(): void {
+  openAddItemForm(): void {
     const openModal = this.modal.open(AddItemFormComponent, {size: 'lg'});
     // Passes inventory onto the add item config so they can be added to the correct inv
     openModal.componentInstance.inv = this.thisInv;

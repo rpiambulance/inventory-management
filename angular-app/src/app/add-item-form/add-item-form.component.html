@@ -12,8 +12,8 @@
         <div formArrayName="items" *ngFor="let item of addItemForm.get('items').controls; let i = index;">
           <div [formGroupName]="i">
             <input formControlName="name" placeholder="Item name" required>
-            <input formControlName="quantity" placeholder="Current Quantity of Item" required>
-            <input formControlName="barcode" placeholder="Item Barcode" required>
+            <input formControlName="quantity" type="number" placeholder="Current Quantity of Item" required>
+            <input formControlName="barcode" placeholder="Item Barcode">
             <button *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
           </div>
         </div>

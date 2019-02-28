@@ -26,7 +26,7 @@ export class AddItemFormComponent {
     return this.fb.group({
       name: ['', Validators.required],
       quantity: ['', Validators.required],
-      barcode: ['', Validators.required]
+      barcode: ['']
     });
   }
   // Allows us to keep adding items in one form

@@ -20,10 +20,7 @@ export class InventoryComponent implements OnInit {
   // the initial store of raw data
   inventoriesJSON: Inventory[];
   // the inventories that loggedIn has access to
-  loggedInInventories: object[] = [];
-
-  // for later...
-  selectedInventory: string;
+  loggedInInventories: Inventory[] = [];
 
   constructor(private data: InventoryService, public router: Router) { }
 
@@ -40,11 +37,6 @@ export class InventoryComponent implements OnInit {
         }
       }
     });
-  }
-
-  // for later...
-  onSelect(inventory: string): void {
-    this.selectedInventory = inventory;
   }
 
   newInvButtonClick(): void {
