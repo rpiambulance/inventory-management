@@ -2,12 +2,15 @@ const express = require('express');
 //needed for cors, will remove in production
 const cors = require('cors');
 const bodyParser = require("body-parser"); 
+const mongoose = require("mongoose");
 const app = express();
 const mock = require('./mock-data.json');
 const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+mongoose.connect('mongodb://database:27017/ims', {useNewUrlParser: true});
+mongoose.Promise = global.Promise;
 
 var corsOptions = {
     origin: 'http://localhost:4200',

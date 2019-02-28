@@ -22,6 +22,8 @@ services:
     volumes:
     - ./express-server:/usr/src/app
     - /usr/src/app/node_modules/
+    depends_on:
+    - database
  
   mongoex:
     image: mongo-express
