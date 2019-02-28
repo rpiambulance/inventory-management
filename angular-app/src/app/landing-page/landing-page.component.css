@@ -1,0 +1,38 @@
+a{
+
+  display: inline;
+
+}
+
+h1{	
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-family: 'Raleway';
+    text-align: center;
+}
+
+.navbar-nav {
+  font-weight: 800;
+  font-family: 'Raleway';  
+  background: orange;
+  
+}
+.nav-item{
+	text-align: center;
+}
+body{
+  font-family: 'Lora';
+  background: aliceblue;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 75rem;
+  padding-top: 2rem;
+}
+head{
+  font-family: 'Lora';
+  background: aliceblue;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}

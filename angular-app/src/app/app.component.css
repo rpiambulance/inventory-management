@@ -3,3 +3,55 @@ a{
   display: inline;
 
 }
+li.nav-item{
+	padding-left: 5rem;	
+}
+
+h1{	
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-family: 'Raleway';
+    text-align: center;
+}
+.site-heading {
+  color:#526a7f;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+  line-height: 1;
+  font-family: 'Raleway';
+  font-size: 5rem;
+  font-weight: 100;
+  line-height: 4rem;
+  
+}
+
+
+#navbarNav{
+  font-weight: 300;
+  font-size: 2rem;
+  font-family: 'Raleway';  
+  background: aliceblue;
+  padding-left: 25rem; 
+}
+
+
+body{
+  font-family: 'Lora';
+  background: aliceblue;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 75rem;
+  padding-top: 2rem;
+}
+head{
+  font-family: 'Lora';
+  background: aliceblue;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+footer{
+	background: aliceblue;
+}
