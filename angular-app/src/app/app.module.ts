@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NewInvFormComponent } from './new-inv-form/new-inv-form.component';
+import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NewInvFormComponent } from './new-inv-form/new-inv-form.component';
     SingleInventoryComponent,
     RegisterComponent,
     LandingPageComponent,
-    NewInvFormComponent
+    NewInvFormComponent,
+    AddItemFormComponent
   ],
   imports: [
     BrowserModule,
