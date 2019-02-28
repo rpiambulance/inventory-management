@@ -1,10 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Inventory } from '../inventory';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { InventoryComponent } from '../inventory/inventory.component';
 import { currentUser, MOCK_USERS } from '../mock-data';
 import { GetInventoriesService } from '../get-inventories.service';
 import { User } from '../user';
 import { ActivatedRoute } from '@angular/router';
+import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 
 @Component({
   selector: 'app-single-inventory',
@@ -19,9 +21,12 @@ export class SingleInventoryComponent implements OnInit {
   // local copy of inventory contents
   thisInv: Inventory;
 
+  // This is the form that we will use to add items to an inventory
+  addItemForm: AddItemFormComponent;
+
   // ActivatedRoute for query params
   // GetInventoryService for mock data
-  constructor(private route: ActivatedRoute, private data: GetInventoriesService) { }
+  constructor(private route: ActivatedRoute, private data: GetInventoriesService, private modal: NgbModal) { }
 
   ngOnInit() {
 
@@ -42,6 +47,13 @@ export class SingleInventoryComponent implements OnInit {
         }
       });
     });
+  }
+
+  // Opens up the add item form modal
+  open(): void {
+    const openModal = this.modal.open(AddItemFormComponent, {size: 'lg'});
+    // Passes inventory onto the add item config so they can be added to the correct inv
+    openModal.componentInstance.inv = this.thisInv;
   }
 
 }
