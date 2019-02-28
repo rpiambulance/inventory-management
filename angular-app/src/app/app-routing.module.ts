@@ -9,6 +9,7 @@ import { NewInvFormComponent } from './new-inv-form/new-inv-form.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { LandingPageComponent}  from './landing-page/landing-page.component';
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inventory', component: InventoryComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'newInvForm', component: NewInvFormComponent},
   { path: 'addItemForm', component: AddItemFormComponent},
   { path: 'landing-page',component: LandingPageComponent}
+
 ];
 
 @NgModule({
