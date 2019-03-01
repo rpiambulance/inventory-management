@@ -6,8 +6,8 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  background-color:#47515b;
-  color: black; /*text color */
+  background-color:#f0f8ff;
+  color: #535399; /*text color */
   font-size: 1.5rem;
 }
 a{
@@ -16,9 +16,10 @@ a{
 
 .container{
     font-family: 'Acta Display';/*round font 2*/
-    width: 60%;
-    background-color: #535f6b;
+    width: 100%;
+    background-color: #a3d4ff;
     padding: 1rem;
+    position: center;
     margin: 5rem;
   }
 
@@ -29,20 +30,27 @@ p{
 }
 
 #img1{/*the image of inventory*/
-  padding-top: 6rem;
+  
   float: right;
-  padding-left: 3rem;
-  width: 50%;
-  height: 50%;
-}
+  /*padding-left: 3rem;*/
 
-#img2{/*the image of scanning bar code*/
-  padding-top: 2rem;
+  background: transparent;
+}
+  #img2{/*the image of scanning bar code*/
+  
   width: 200%;
   float: right;
 
 }
-#img3{/*the image of suits*/
-  padding-top: 2rem;
+.box1{
+  padding-top: 10rem;
+}
+
+.section-heading-lower{
+  text-align:center;
+
+}
+
+h2{
   position: center;
 }
