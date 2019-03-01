@@ -1,37 +1,48 @@
-/* color theme to use http://www.html-color-names.com/aliceblue.php
+/* color theme black white red different shades of grey
 */
 
 body {
-  font-family: 'Lora';
+  font-family: 'Calibri';/*round font*/
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  background-color: #a3d4ff;
-  color: #526a7f; /*text color */
+  background-color:#47515b;
+  color: black; /*text color */
   font-size: 1.5rem;
 }
-
-
-.section-heading{/*About us*/
-  font-family: 'Lora';
-  padding-top: 1rem;
+a{
+  font-family: 'Calibri';
 }
 
 .container{
+    font-family: 'Acta Display';/*round font 2*/
     width: 60%;
-    background-color: #ffd6b0;
+    background-color: #535f6b;
     padding: 1rem;
     margin: 5rem;
   }
+
 p{
   padding-left: 1rem;
   padding-right: 1rem;
   position: relative;
 }
-img{/*the image in about us*/
+
+#img1{/*the image of inventory*/
+  padding-top: 6rem;
   float: right;
   padding-left: 3rem;
+  width: 50%;
+  height: 50%;
 }
-.bg{/*background image*/
-  
+
+#img2{/*the image of scanning bar code*/
+  padding-top: 2rem;
+  width: 200%;
+  float: right;
+
+}
+#img3{/*the image of suits*/
+  padding-top: 2rem;
+  position: center;
 }

@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>Inventory Management System</title>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Inventory Management System</title>
+  </head>
 
-<body>
-  <section class="rg">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 text-center mx-auto">
-          <!---Image to make website look better--->
-          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="../assets/image2.jpg" alt="" style="width: 600px;">
-          <div class="intro-text mx-auto text-center bg-faded p-5 rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-lower">Help you manage your inventory</span>
-            </h2>
-            <p class="mb-3">Register to use our website
-            </p>
-            <div class="intro-button mx-auto">
-              <!---Register button--->
-              <a class="btn btn-primary btn-xl" routerLink="/register" routerLinkActive="active">Register Today!</a> 
+  <body>
+
+    <div class="col-sm-8 text-center mx-auto">
+      <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="../assets/image1.jpg" alt="" id="img1">
+    </div> 
+    <section class="rg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 text-center mx-auto">
+            <!---Image to make website look better--->
+            <div class="intro-text mx-auto text-center bg-faded p-5 rounded">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-lower">Help you manage your inventory</span>
+              </h2>
+              <p class="mb-3">Register to use our website
+              </p>
+              <div class="intro-button mx-auto">
+                <!---Register button--->
+                <a class="btn btn-primary btn-xl" routerLink="/register" routerLinkActive="active">Register Today!</a> 
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
- 
-   <section class="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 text-center mx-auto">
-            <h2 class="section-heading ">
-              <span class="section-heading-lower text-center">About us</span>
-            </h2>
-            <!---Add an image--->
-            <img src="../assets/image1.jpg" class="img-responsive" alt="pic" width="304" height="236">
+    </section>
+    <div class="col-md-8 text-center mx-auto">
+  <!--           Image to make website look better
+   -->          
+      <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="../assets/image2.jpg" alt="" style="width: 600px;" id="img2">
+    </div> -
 
-            <p class="col-sm-8" >Our product is an inventory management and inventory taking system to allow for companies, clubs, and individual users to manage complex inventory systems.
-            </p>            
-        </div>
-      </div>
-    </div>
-  </section>
-
-<router-outlet></router-outlet>
-</body>
+    <div class="col-12 col-sm-6 col-md-8">
+      <section class="about">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 text-center mx-auto">
+                <h2 class="section-heading ">
+                  <span class=" text-center">About us</span>
+                </h2>
+                <p >Our product is an inventory management and inventory taking system to allow for companies, clubs, and individual users to manage complex inventory systems.
+                </p>    
+            </div>
+          </div>
+        </div>  
+      </section>  
+  </div>
+  <div class="col-md-12 text-center">
+     <!---Image to make website look better--->          
+    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="../assets/image3.jpg" alt="" id="img3">
+  </div>
+  <router-outlet></router-outlet>
+  </body>
 
 
 </html>
