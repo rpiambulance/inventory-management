@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Inventory } from '../inventory';
 import { currentUser } from '../mock-data';
+import { InventoryService } from '../inventory.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,15 +11,15 @@ import { Router } from '@angular/router';
 })
 export class NewInvFormComponent {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private invService: InventoryService) { }
 
   // We can only have one inventory in JavaScript so we must make an object
   model: Inventory = new Inventory({items: [], name: '', people: [currentUser]});
 
   onSubmit(): void {
-    // We will do the actual submission of the form here
-    console.log('Submitted!');
-    console.log(this.model);
+    this.invService.createInventory(this.model).subscribe((response) => {
+      console.log(response);
+    });
     this.router.navigate(['inventory']);
     return null;
   }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormArray, FormBuilder, FormGroup} from '@angular/forms';
 import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { Inventory } from '../inventory';
+import { InventoryService } from '../inventory.service';
 import { Item } from '../item';
 
 @Component({
@@ -13,7 +14,7 @@ export class AddItemFormComponent {
   addItemForm: FormGroup;
   items: FormArray;
   inv: Inventory;
-  constructor(private fb: FormBuilder, public activeModal: NgbActiveModal) {
+  constructor(private fb: FormBuilder, public activeModal: NgbActiveModal, private invService: InventoryService) {
     this.addItemForm = this.fb.group({
       items: this.fb.array([
         this.createItemControl()
@@ -43,7 +44,11 @@ export class AddItemFormComponent {
       const vals = control.value;
       submitItems.push(new Item(vals.name, vals.quantity, vals.barcode));
     }
-    console.log(submitItems);
+    // Add the items and close the modal
+    this.invService.addItem(this.inv, submitItems).subscribe((response) => {
+      console.log(response);
+      this.activeModal.close();
+    });
   }
 
   removeItem(index: number): void {

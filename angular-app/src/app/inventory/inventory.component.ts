@@ -29,11 +29,13 @@ export class InventoryComponent implements OnInit {
     // get the data from the server
     this.data.getInventories().subscribe(data => {
       this.inventoriesJSON = data;
+      console.log(this.inventoriesJSON);
       for (const inv of this.inventoriesJSON) {
-        // add the inventories that the user has access to
-        // TODO: clean up
-        if (inv.people.includes(currentUser)) {
-          this.loggedInInventories.push(inv);
+        // Includes woudln't work with the new object model so we do a manual compare
+        for (const people of inv.people) {
+          if (people.userName === this.loggedIn.userName) {
+            this.loggedInInventories.push(inv);
+          }
         }
       }
     });

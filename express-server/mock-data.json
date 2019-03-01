@@ -9,7 +9,7 @@
         {"name": "radios", "quantity":5, "barcode":""}
       ],
       "people":[
-        "andrew","bob","charlie"
+        {"userName": "andrew", "firstName":"andrew", "lastName":"qu", "email": "qua@rpi.edu", "password": "1234"}
       ]
     },
     {
