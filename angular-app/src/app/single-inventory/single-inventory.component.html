@@ -1,7 +1,5 @@
 <h1>{{ name }}</h1>
-<div *ngFor="let val of thisInv?.items | keyvalue">
-  <div *ngFor="let item of val?.value | keyvalue">
-      <p>{{ item.key }} - {{ item.value }}</p>
-  </div>
+<div *ngFor="let item of thisInv?.items">
+      <p>{{ item.name }} - {{ item.quantity }}</p>
 </div>
-
+<button type="button" class="btn btn-primary" (click)="openAddItemForm()">Add Item</button>
