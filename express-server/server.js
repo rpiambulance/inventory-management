@@ -55,4 +55,8 @@ app.post('/inventory/additem', (req,res) => {
     });
 });
 
+app.post('/user/create', (req, res) => {
+    console.log(req.body);
+});
+
 app.listen(port, '0.0.0.0', () => console.log(`Example app listening on port ${port}!`))

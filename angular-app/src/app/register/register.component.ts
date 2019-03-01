@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, AbstractControl, Validators } from '@angular/forms';
+import { FormBuilder, AbstractControl} from '@angular/forms';
 import { User } from '../user';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { User } from '../user';
 })
 export class RegisterComponent {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authServ: AuthService) { }
   // This looks awfully familiar to the login form, but some minor differences in submission
   model: User = new User('', '', '', '', '');
   registerForm = this.fb.group({
@@ -24,6 +25,10 @@ export class RegisterComponent {
   onSubmit(): void {
     // We will do the actual submission of the form here
     console.log('Submitted!');
+    // Add the items and close the modal
+    this.authServ.registerUser(this.model).subscribe((response) => {
+      console.log(response);
+    });
     return null;
   }
 
