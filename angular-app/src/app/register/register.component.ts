@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, AbstractControl} from '@angular/forms';
 import { User } from '../user';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent {
 
   registerSuccess: boolean;
   errorMessage: string;
-  constructor(private fb: FormBuilder, private authServ: AuthService) {
+  constructor(private fb: FormBuilder, private authServ: AuthService, private router: Router) {
     // Initializes them to not be null
     this.registerSuccess = true;
     this.errorMessage = '';
@@ -40,6 +41,7 @@ export class RegisterComponent {
     this.authServ.registerUser(this.model).subscribe((response) => {
       this.registerSuccess = response.success;
       this.errorMessage = response.error;
+      this.router.navigate(['login']);
     });
     return null;
   }
