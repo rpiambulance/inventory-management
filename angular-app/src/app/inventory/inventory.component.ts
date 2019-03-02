@@ -31,7 +31,7 @@ export class InventoryComponent implements OnInit {
       this.inventoriesJSON = data;
       console.log(this.inventoriesJSON);
       for (const inv of this.inventoriesJSON) {
-        // Includes woudln't work with the new object model so we do a manual compare
+        // Includes wouldn't work with the new object model so we do a manual compare
         for (const people of inv.people) {
           if (people.userName === this.loggedIn.userName) {
             this.loggedInInventories.push(inv);
