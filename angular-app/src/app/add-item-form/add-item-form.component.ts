@@ -47,6 +47,7 @@ export class AddItemFormComponent {
     // Add the items and close the modal
     this.invService.addItem(this.inv, submitItems).subscribe((response) => {
       console.log(response);
+      this.inv.items = this.inv.items.concat(submitItems);
       this.activeModal.close();
     });
   }

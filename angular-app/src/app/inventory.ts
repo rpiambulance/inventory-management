@@ -1,11 +1,10 @@
 import { Item } from './item';
-import { User } from './user';
 
 export class Inventory {
 
     public name: string;
     public items: Array<Item>;
-    public people: Array<User>;
+    public people: Array<string>;
 
     constructor(invObj: any) {
         this.items = [];
@@ -13,10 +12,7 @@ export class Inventory {
         for (const item of invObj.items) {
             this.items.push(new Item(item.name, item.quantity, item.barcode));
         }
-        this.people = [];
-        for (const person of invObj.people) {
-            this.people.push(new User(person.userName, person.firstName, person.lastName, person.email, person.password));
-        }
+        this.people = invObj.people;
         this.name = invObj.name;
     }
 }

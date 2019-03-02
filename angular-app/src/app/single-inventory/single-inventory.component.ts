@@ -1,10 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Inventory } from '../inventory';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { InventoryComponent } from '../inventory/inventory.component';
-import { currentUser, MOCK_USERS } from '../mock-data';
 import { InventoryService } from '../inventory.service';
-import { User } from '../user';
 import { ActivatedRoute } from '@angular/router';
 import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 

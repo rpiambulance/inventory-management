@@ -16,4 +16,8 @@ export class AuthService {
   authenticateUser(usr: User): Observable<any> {
     return this.http.post('http://localhost:3000/user/login', usr);
   }
+
+  getUser(token: string): Observable<any> {
+    return this.http.post('http://localhost:3000/user/get', {token});
+  }
 }
