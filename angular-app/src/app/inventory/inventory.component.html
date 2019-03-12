@@ -1,11 +1,23 @@
-<h2>Hello {{ loggedIn }}</h2>
+<h2>Hello {{ loggedIn.firstName }} {{ loggedIn.lastName }}, Your Inventories:</h2>
+
+<p *ngIf="loggedInInventories.length == 0">You don't have any inventories :(</p>
 
 <div class = "container">
-    <nav clas="navbar navbar-expand-md navbar-light bg-dark">
-        <p class="navbar-brand">Inventories</p>
-            <button type="button" (click)="newInvButtonClick()" class="btn btn-success">New Inventory</button>
-            <button type="submit" class="btn btn-info">Generate API</button>
-            <button type="submit" class="btn btn-danger">Manage Inventories</button>
+
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <h3 class="navbar-brand">Inventories</h3>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav>
+
+    <nav class="navbar navbar-light">
+        <form class="form-inline">
+              <a class="nav-link"><button type="button" (click)="newInvButtonClick()" class="btn btn-success">New Inventory</button></a>
+              <a class="nav-link"><button type="submit" class="btn btn-info">Generate API</button></a>
+              <a class="nav-link"><button type="submit" class="btn btn-danger">Manage Inventories</button></a>
+        </form>
     </nav>
 
     <ul class="list-group list-group-flush">
@@ -17,8 +29,4 @@
         </li>
     </ul>
 
-    <p class="functions">
-    <!-- extra informataion and functions goes here
-    (add, remove, view, generate api code, etc) -->
-    </p>
 </div>
