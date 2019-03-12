@@ -8,6 +8,7 @@ import { SingleInventoryComponent } from './single-inventory/single-inventory.co
 import { NewInvFormComponent } from './new-inv-form/new-inv-form.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { LandingPageComponent}  from './landing-page/landing-page.component';
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 
 const routes: Routes = [
@@ -15,8 +16,8 @@ const routes: Routes = [
   { path: 'inventory', component: InventoryComponent },
   { path: 'single-inventory/:name', component: SingleInventoryComponent },
   { path: 'register', component: RegisterComponent},
-  { path: 'newInvForm', component: NewInvFormComponent},
-  { path: 'addItemForm', component: AddItemFormComponent},
+   { path: 'newInvForm', component: NewInvFormComponent, canActivate: [AuthGuard]},
+  { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard]},
   { path: 'landing-page',component: LandingPageComponent}
 
 ];
