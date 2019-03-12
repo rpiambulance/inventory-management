@@ -1,23 +1,24 @@
-<h2>Hello {{ loggedIn.firstName }} {{ loggedIn.lastName }}, Your Inventories:</h2>
+<h2>Hello {{ loggedIn }}</h2>
 
-<p *ngIf="loggedInInventories.length == 0">You don't have any inventories :(</p>
+<div class = "container">
+    <nav clas="navbar navbar-expand-md navbar-light bg-dark">
+        <p class="navbar-brand">Inventories</p>
+            <button type="button" (click)="newInvButtonClick()" class="btn btn-success">New Inventory</button>
+            <button type="submit" class="btn btn-info">Generate API</button>
+            <button type="submit" class="btn btn-danger">Manage Inventories</button>
+    </nav>
 
-<p class="container userInventories">
-  <!-- Use ngFor here to display all inventories 
-      after pulling from data source, Postgres? Mongo? -->
+    <ul class="list-group list-group-flush">
 
-  <li *ngFor="let inventory of loggedInInventories" (click) ="onSelect(inventory)">
-    <a routerLink="/single-inventory/{{ inventory.name }}">{{ inventory.name }}</a>
-  </li>
+        <!-- Use ngFor here to display all inventories 
+        after pulling from data source, Postgres? Mongo? -->
+        <li class="list-group-item" *ngFor="let inventory of loggedInInventories" (click) ="onSelect(inventory)">
+            <a routerLink="/single-inventory/{{ inventory.name }}">{{ inventory.name }}</a>
+        </li>
+    </ul>
 
-</p>
-
-<p class="functions">
-
-    <button type="button" (click)="newInvButtonClick()" class="btn btn-success">New Inventory</button><br/>
-    <button type="submit" class="btn btn-info">Generate API</button><br/>
-    <button type="submit" class="btn btn-danger">Manage Inventories</button>
-  <!-- extra informataion and functions goes here
-  (add, remove, view, generate api code, etc) -->
-</p>
-
+    <p class="functions">
+    <!-- extra informataion and functions goes here
+    (add, remove, view, generate api code, etc) -->
+    </p>
+</div>

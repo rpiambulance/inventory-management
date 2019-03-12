@@ -1,27 +1,30 @@
 <div class="container">
-  <h1>Login</h1>
-  <div [hidden]="signinSuccess" class="alert alert-danger">
-    Username or password is incorrect!
-  </div>
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" [(ngModel)]="model.userName" name="username" #username="ngModel" required>
-      <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
-        Username is required!
-      </div>
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-6">
+            <h1 align="center">Login</h1>
+                <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" [(ngModel)]="model.userName" name="username" #username="ngModel" required>
+                        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+                            Username is required!
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" [(ngModel)]="model.password" name="password" #password="ngModel" required>
+                        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                            Password is required!
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Submit</button>
+                </form>
+            <p>Don't have an account?: Click <a routerLink="/register" routerLinkActive="active">here</a> to make one </p>
+        </div>
+        <div class="col">
+        </div>
     </div>
-
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" [(ngModel)]="model.password" name="password" #password="ngModel" required>
-      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-        Password is required!
-      </div>
-    </div>
-
-    <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Submit</button>
-
-  </form>
-  <p>Don't have an account?: Click <a routerLink="/register" routerLinkActive="active">here</a> to make one </p>
 </div>
