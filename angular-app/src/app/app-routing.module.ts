@@ -10,7 +10,6 @@ import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { LandingPageComponent}  from './landing-page/landing-page.component';
 
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
-import { LandingPageComponent}  from './landing-page/landing-page.component';
 
 
 
