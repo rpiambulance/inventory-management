@@ -4,7 +4,6 @@ export class Inventory {
 
     public name: string;
     public items: Array<Item>;
-    // PRobably change this to Ids as we don't want to store users as the user object has a password
     public people: Array<string>;
 
     constructor(invObj: any) {

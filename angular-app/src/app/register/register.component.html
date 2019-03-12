@@ -1,5 +1,8 @@
 <div class="container">
   <h1>Create Account</h1>
+  <div [hidden]="registerSuccess" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
   <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
     <div class="form-group">
       <label for="username">Username</label>

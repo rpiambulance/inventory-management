@@ -1,5 +1,8 @@
 <div class="container">
   <h1>Login</h1>
+  <div [hidden]="signinSuccess" class="alert alert-danger">
+    Username or password is incorrect!
+  </div>
   <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
     <div class="form-group">
       <label for="username">Username</label>
