@@ -41,7 +41,10 @@ export class RegisterComponent {
     this.authServ.registerUser(this.model).subscribe((response) => {
       this.registerSuccess = response.success;
       this.errorMessage = response.error;
-      this.router.navigate(['login']);
+      // Only if there is no error do we wanna navigate away
+      if (this.registerSuccess) {
+        this.router.navigate(['login']);
+      }
     });
     return null;
   }
