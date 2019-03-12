@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { AppComponent } from './app.component';
@@ -13,14 +13,12 @@ import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'inventory', component: InventoryComponent },
-  { path: 'single-inventory/:name', component: SingleInventoryComponent },
+  { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard] },
+  { path: 'single-inventory/:name', component: SingleInventoryComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent},
-   { path: 'newInvForm', component: NewInvFormComponent, canActivate: [AuthGuard]},
-  { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard]},
   { path: 'landing-page',component: LandingPageComponent}
-
-];
+  { path: 'newInvForm', component: NewInvFormComponent, canActivate: [AuthGuard]},
+  { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard]}
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
