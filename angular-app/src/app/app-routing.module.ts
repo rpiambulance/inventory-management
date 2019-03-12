@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'landing-page',component: LandingPageComponent},
   { path: 'newInvForm', component: NewInvFormComponent, canActivate: [AuthGuard]},
   { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard]}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
