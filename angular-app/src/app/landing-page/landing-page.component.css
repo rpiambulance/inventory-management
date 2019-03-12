@@ -1,0 +1,56 @@
+/* color theme black white red different shades of grey
+*/
+
+body {
+  font-family: 'Calibri';/*round font*/
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-color:#f0f8ff;
+  color: #535399; /*text color */
+  font-size: 1.5rem;
+}
+a{
+  font-family: 'Calibri';
+}
+
+.container{
+    font-family: 'Acta Display';/*round font 2*/
+    width: 100%;
+    background-color: #a3d4ff;
+    padding: 1rem;
+    position: center;
+    margin: 5rem;
+  }
+
+p{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+}
+
+#img1{/*the image of inventory*/
+  
+  float: right;
+  /*padding-left: 3rem;*/
+
+  background: transparent;
+}
+  #img2{/*the image of scanning bar code*/
+  
+  width: 200%;
+  float: right;
+
+}
+.box1{
+  padding-top: 10rem;
+}
+
+.section-heading-lower{
+  text-align:center;
+
+}
+
+h2{
+  position: center;
+}
