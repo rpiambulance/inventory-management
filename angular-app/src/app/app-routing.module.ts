@@ -17,8 +17,7 @@ const routes: Routes = [
   { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard] },
   { path: 'single-inventory/:name', component: SingleInventoryComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent},
-  { path: 'landing-page',component: LandingPageComponent}
-
+  { path: 'landing-page',component: LandingPageComponent},
   { path: 'newInvForm', component: NewInvFormComponent, canActivate: [AuthGuard]},
   { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard]}
 
