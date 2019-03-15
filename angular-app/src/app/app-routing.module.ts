@@ -8,6 +8,7 @@ import { SingleInventoryComponent } from './single-inventory/single-inventory.co
 import { NewInvFormComponent } from './new-inv-form/new-inv-form.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import { AddPersonComponent } from './add-person/add-person.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'single-inventory/:name', component: SingleInventoryComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent},
   { path: 'newInvForm', component: NewInvFormComponent, canActivate: [AuthGuard]},
-  { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard]}
+  { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard] },
+  { path: 'addPerson', component: AddPersonComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

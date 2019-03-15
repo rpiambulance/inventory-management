@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { InventoryService } from '../inventory.service';
 import { ActivatedRoute } from '@angular/router';
 import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
+import { AddPersonComponent } from '../add-person/add-person.component';
 
 @Component({
   selector: 'app-single-inventory',
@@ -54,4 +55,8 @@ export class SingleInventoryComponent implements OnInit {
     openModal.componentInstance.inv = this.thisInv;
   }
 
+  // Opens up the add person form modal
+  addPerson(): void {
+    const openModal = this.modal.open(AddPersonComponent, { size: 'lg' });
+  }
 }
