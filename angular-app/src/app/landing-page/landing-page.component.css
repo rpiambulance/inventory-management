@@ -1,5 +1,8 @@
-/* color theme black white red different shades of grey
+/* better ID names
 */
+h2{
+  position: center;
+}
 
 body {
   font-family: 'Calibri';/*round font*/
@@ -10,9 +13,6 @@ body {
   color: #535399; /*text color */
   font-size: 1.5rem;
 }
-a{
-  font-family: 'Calibri';
-}
 
 .container{
     font-family: 'Acta Display';/*round font 2*/
@@ -21,36 +21,34 @@ a{
     padding: 1rem;
     position: center;
     margin: 5rem;
-  }
+}
 
-p{
+#mainText{/*register today font*/
+  text-align: center;
+}
+
+#linkStyle{
+  font-family: 'Calibri';
+}
+
+#text{
   padding-left: 1rem;
   padding-right: 1rem;
   position: relative;
 }
 
-#img1{/*the image of inventory*/
-  
+#img1{/*the image of inventory*/  
   float: right;
   /*padding-left: 3rem;*/
-
   background: transparent;
 }
-  #img2{/*the image of scanning bar code*/
-  
+
+#img2{/*the image of scanning bar code*/  
   width: 200%;
   float: right;
 
 }
-.box1{
-  padding-top: 10rem;
-}
 
-.section-heading-lower{
-  text-align:center;
 
-}
 
-h2{
-  position: center;
-}
+
