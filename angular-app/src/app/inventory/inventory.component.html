@@ -25,7 +25,7 @@
 
         <!-- Use ngFor here to display all inventories 
         after pulling from data source, Postgres? Mongo? -->
-        <li class="list-group-item" *ngFor="let inventory of loggedInInventories" (click) ="onSelect(inventory)">
+        <li class="list-group-item" *ngFor="let inventory of loggedInInventories">
             <a routerLink="/single-inventory/{{ inventory.id }}">{{ inventory.name }}</a>
         </li>
     </ul>
