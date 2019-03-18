@@ -51,7 +51,7 @@ app.post('/inventory/create', (req, res) => {
 });
 
 app.post('/inventory/additem', (req,res) => {
-    Inventory.findOne({name: req.body.inventory.name}, (err, inventory) => {
+    Inventory.findOne({_id: req.body.inventory.id}, (err, inventory) => {
         if(err) return console.error(err);
         for (const item of req.body.items) {
             inventory.items.push(item);

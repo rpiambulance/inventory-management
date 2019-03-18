@@ -39,12 +39,14 @@ export class AddItemFormComponent {
   onSubmit(): void {
     console.log('Submitted');
     const submitItems: Item[] = [];
+    console.log(this.inv);
     // Constructs actual item variables from this
     for (const control of this.items.controls) {
       const vals = control.value;
       submitItems.push(new Item(vals.name, vals.quantity, vals.barcode));
     }
     // Add the items and close the modal
+    console.log(this.inv)
     this.invService.addItem(this.inv, submitItems).subscribe((response) => {
       console.log(response);
       this.inv.items = this.inv.items.concat(submitItems);
