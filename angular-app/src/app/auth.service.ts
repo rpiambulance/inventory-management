@@ -20,4 +20,8 @@ export class AuthService {
   getUser(token: string): Observable<any> {
     return this.http.post('http://localhost:3000/user/get', {token});
   }
+
+  logout(): void{
+    localStorage.removeItem('auth_token');
+  }
 }

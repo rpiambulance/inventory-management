@@ -38,7 +38,6 @@ export class InventoryComponent implements OnInit {
         for (const inv of this.inventoriesJSON) {
           if (inv.people.includes(this.loggedIn.userName)) {
             this.loggedInInventories.push(inv);
-            console.log(inv);
           }
         }
       });

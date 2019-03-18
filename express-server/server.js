@@ -81,6 +81,8 @@ app.post('/user/login', (req, res) => {
                 // Return the JSON web token
                 res.send({success:true, error: "", token: token});
             });
+        }else{
+            res.send({success:false, error: "Incorrect username or password!"})
         }
     });
 });

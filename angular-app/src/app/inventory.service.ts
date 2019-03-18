@@ -18,7 +18,6 @@ export class InventoryService {
       const inventories = [];
       res = res.inventories;
       for (let i = 0; i < res.length; i++) {
-        console.log(res[i]);
         inventories[i] = new Inventory(res[i]);
       }
       return inventories;
