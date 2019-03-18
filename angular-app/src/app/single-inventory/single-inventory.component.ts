@@ -14,10 +14,10 @@ import { AddPersonComponent } from '../add-person/add-person.component';
 export class SingleInventoryComponent implements OnInit {
 
   // name of inventory
-  id: number;
+  id: string;
 
   // local copy of inventory contents
-  thisInv: Inventory;
+  thisInv: Inventory = new Inventory({items: [], name: '', people: []});
 
   // This is the form that we will use to add items to an inventory
   addItemForm: AddItemFormComponent;
@@ -27,18 +27,16 @@ export class SingleInventoryComponent implements OnInit {
   constructor(private route: ActivatedRoute, private data: InventoryService, private modal: NgbModal) { }
 
   ngOnInit() {
-
     // getting the name of the inventory to display
     this.route.paramMap.subscribe(params => {
 
-      this.id = Number.parseFloat(params.get(`id`));
+      this.id = params.get(`id`);
       // fetch all inventories
       this.data.getInventories().subscribe(data => {
 
         // for every inventory
         for (const inv of data) {
-          if (inv.id === this.id) {
-            console.log(inv.id + " " + this.id);
+          if (inv.id.toString() === this.id) {
             // found the inventory
             // TODO: else case in case inv not found
             this.thisInv = new Inventory(inv);
