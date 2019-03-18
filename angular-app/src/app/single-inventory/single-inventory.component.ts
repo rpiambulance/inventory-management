@@ -14,7 +14,7 @@ import { AddPersonComponent } from '../add-person/add-person.component';
 export class SingleInventoryComponent implements OnInit {
 
   // name of inventory
-  name: string;
+  id: number;
 
   // local copy of inventory contents
   thisInv: Inventory;
@@ -31,13 +31,14 @@ export class SingleInventoryComponent implements OnInit {
     // getting the name of the inventory to display
     this.route.paramMap.subscribe(params => {
 
-      this.name = params.get(`name`);
+      this.id = Number.parseFloat(params.get(`id`));
       // fetch all inventories
       this.data.getInventories().subscribe(data => {
 
         // for every inventory
         for (const inv of data) {
-          if (inv.name === this.name) {
+          if (inv.id === this.id) {
+            console.log(inv.id + " " + this.id);
             // found the inventory
             // TODO: else case in case inv not found
             this.thisInv = new Inventory(inv);

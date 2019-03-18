@@ -2,6 +2,7 @@ import { Item } from './item';
 
 export class Inventory {
 
+    public id: number;
     public name: string;
     public items: Array<Item>;
     public people: Array<string>;
@@ -14,5 +15,6 @@ export class Inventory {
         }
         this.people = invObj.people;
         this.name = invObj.name;
+        this.id = invObj._id;
     }
 }

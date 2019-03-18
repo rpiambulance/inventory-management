@@ -13,7 +13,7 @@ import { AddPersonComponent } from './add-person/add-person.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard] },
-  { path: 'single-inventory/:name', component: SingleInventoryComponent, canActivate: [AuthGuard] },
+  { path: 'single-inventory/:id', component: SingleInventoryComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent},
   { path: 'newInvForm', component: NewInvFormComponent, canActivate: [AuthGuard]},
   { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard] },

@@ -7,7 +7,7 @@
       after pulling from data source, Postgres? Mongo? -->
 
   <li *ngFor="let inventory of loggedInInventories" (click) ="onSelect(inventory)">
-    <a routerLink="/single-inventory/{{ inventory.name }}">{{ inventory.name }}</a>
+    <a routerLink="/single-inventory/{{ inventory.id }}">{{ inventory.name }}</a>
   </li>
 
 </p>
