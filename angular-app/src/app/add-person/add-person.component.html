@@ -11,14 +11,11 @@
       <div ngbDropdown class="d-inline-block">
         <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1"> -->
-          <select *ngFor="let person of users;let i=index;" >
-            <option value="{{ person.userName }}">{{ person.userName }}</option>
-            <option value="{{ person.firstName }}">{{ person.firstName }}</option>
-            <!-- <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option> -->
-          </select>
+          <!-- <select name="function">
+            <div *ngFor="let user of users" class="md-form form-lg">
+                <option [value]="user.userName" required>{{ user.userName }}</option>
+            </div>
+          </select> -->
           <!-- <div *ngFor="let person of users;let i=index;">
             <div ngbDropDownItem>{{ person.userName }}</div>
           </div> -->
@@ -29,6 +26,11 @@
       <!-- </div> -->
     <!-- </div> -->
     <form [formGroup]="addPersonForm" (ngSubmit)="onSubmit()">
+        <select formControlName="user">
+            <option *ngFor='let user of users' [value]="user.userName" selected="selected">
+              {{user.userName}}
+            </option>
+        </select>
       <button type="submit">Submit</button>
     </form>
   </div>       

@@ -38,6 +38,7 @@ export class AddItemFormComponent {
 
   onSubmit(): void {
     console.log('Submitted');
+    console.log(this.addItemForm);
     const submitItems: Item[] = [];
     console.log(this.inv);
     // Constructs actual item variables from this
