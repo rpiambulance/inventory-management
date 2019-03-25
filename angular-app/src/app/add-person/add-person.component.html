@@ -7,24 +7,6 @@
 <div class="modal-body">
   <div class="container">
     <h2>Add Person</h2>
-    <!-- <div class="col">
-      <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1"> -->
-          <!-- <select name="function">
-            <div *ngFor="let user of users" class="md-form form-lg">
-                <option [value]="user.userName" required>{{ user.userName }}</option>
-            </div>
-          </select> -->
-          <!-- <div *ngFor="let person of users;let i=index;">
-            <div ngbDropDownItem>{{ person.userName }}</div>
-          </div> -->
-          <!-- <button ngbDropdownItem>Action - 1</button>
-          <button ngbDropdownItem>Another Action</button>
-          <button ngbDropdownItem>Something else is here</button> -->
-        <!-- </div> -->
-      <!-- </div> -->
-    <!-- </div> -->
     <form [formGroup]="addPersonForm" (ngSubmit)="onSubmit()">
         <select formControlName="user">
             <option *ngFor='let user of users' [value]="user.userName" selected="selected">

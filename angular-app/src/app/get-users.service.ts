@@ -10,8 +10,8 @@ import { map } from 'rxjs/operators';
 export class GetUsersService {
 
   constructor(private http: HttpClient) { }
+  // used to get all the users of the system
   getUsers(): Observable<User[]> {
-
     return this.http.get<any>('http://localhost:3000/user/all').pipe(map(res => {
       return res;
     }));
