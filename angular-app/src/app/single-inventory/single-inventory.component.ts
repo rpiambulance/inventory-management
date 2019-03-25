@@ -40,6 +40,7 @@ export class SingleInventoryComponent implements OnInit {
             // found the inventory
             // TODO: else case in case inv not found
             this.thisInv = new Inventory(inv);
+            console.log('found this inv');
             console.log(this.thisInv);
             break;
           }
@@ -59,5 +60,7 @@ export class SingleInventoryComponent implements OnInit {
   // Opens up the add person form modal
   addPerson(): void {
     const openModal = this.modal.open(AddPersonComponent, { size: 'lg' });
+
+    openModal.componentInstance.inv = this.thisInv;
   }
 }

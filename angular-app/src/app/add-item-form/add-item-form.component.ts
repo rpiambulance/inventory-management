@@ -46,7 +46,7 @@ export class AddItemFormComponent {
       submitItems.push(new Item(vals.name, vals.quantity, vals.barcode));
     }
     // Add the items and close the modal
-    console.log(this.inv)
+    console.log(this.inv);
     this.invService.addItem(this.inv, submitItems).subscribe((response) => {
       console.log(response);
       this.inv.items = this.inv.items.concat(submitItems);

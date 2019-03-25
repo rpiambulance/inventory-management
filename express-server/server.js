@@ -35,6 +35,12 @@ app.get('/inventory', (req, res) => {
     });
 });
 
+app.get('/user/all', function (req, res) {
+    User.find({}, { email:0, password: 0, salt:0, __v:0 },function (err, users) {
+        res.send(users);
+    })
+});
+
 app.post('/inventory/create', (req, res) => {
     // I don't know if we want to switch to IDs or check for iventory names
     jwt.verify(req.body.people[0], JSONWTSECRET, (err, decoded) => {
