@@ -38,6 +38,7 @@ export class AddItemFormComponent {
 
   onSubmit(): void {
     console.log('Submitted');
+    console.log(this.addItemForm);
     const submitItems: Item[] = [];
     console.log(this.inv);
     // Constructs actual item variables from this
@@ -46,7 +47,7 @@ export class AddItemFormComponent {
       submitItems.push(new Item(vals.name, vals.quantity, vals.barcode));
     }
     // Add the items and close the modal
-    console.log(this.inv)
+    console.log(this.inv);
     this.invService.addItem(this.inv, submitItems).subscribe((response) => {
       console.log(response);
       this.inv.items = this.inv.items.concat(submitItems);

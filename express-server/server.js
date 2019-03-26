@@ -35,6 +35,12 @@ app.get('/inventory', (req, res) => {
     });
 });
 
+app.get('/user/all', function (req, res) {
+    User.find({}, { email:0, password: 0, salt:0, __v:0 },function (err, users) {
+        res.send(users);
+    })
+});
+
 app.post('/inventory/create', (req, res) => {
     // I don't know if we want to switch to IDs or check for iventory names
     jwt.verify(req.body.people[0], JSONWTSECRET, (err, decoded) => {
@@ -111,6 +117,20 @@ app.post('/user/get', (req, res) => {
         if (err) { res.send({success:false, error:err}); return; }
         res.send({success: true, error: "", user: decoded});
     });
+});
+
+app.post('/inventory/:id', (req, res) => {
+    var invId = req.params.id;
+    Inventory.findOne({ _id: invId }, (err, inv) => {
+        if (err) return console.log(err);
+        inv.people.push(req.body.user)
+
+        inv.save((err) => {
+            if (err) { res.send({ success: false, error: err }); return console.error(err) };
+            console.log("Successfully added a new user to the inventory!");
+            res.send({ success: true, error: "" });
+        })
+    })
 });
 
 app.listen(port, '0.0.0.0', () => console.log(`Example app listening on port ${port}!`))

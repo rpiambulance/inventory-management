@@ -31,4 +31,8 @@ export class InventoryService {
   addItem(inv: Inventory, itemsArray: Item[]): Observable<Inventory> {
     return this.http.post<Inventory>('http://localhost:3000/inventory/additem', {inventory: inv, items: itemsArray});
   }
+
+  addPerson(inv: Inventory, newPerson: string): Observable<any> {
+    return this.http.post('http://localhost:3000/inventory/' + inv.id, { user: newPerson });
+  }
 }
