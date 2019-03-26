@@ -1,28 +1,6 @@
-<h1>{{ name }}</h1>
-
-<!--- responsive button--->
-<button type="button" class="btn btn-primary" (click)="openAddItemForm()" data-toggle="button" aria-pressed="false" autocomplete="off">
-  Add Item
-</button>
-
-<table class="table table-striped ">
-  <thead>
-    <tr>
-      <th scope="col">Item Name</th>
-      <th scope="col">Item Quantity</th>      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    	<!---how to iterate and display individual items?--->
-      <th scope="row">
-      	<div *ngFor="let item of thisInv?.items">
-      		<p>{{ item.name }} </p>
-		</div>
-	  </th>
-      <td><div *ngFor="let item of thisInv?.items">
-      		<p>{{ item.quantity }} </p>
-		</div></td>
-    </tr>  
-    </tbody>
-</table>
+<h1>{{ thisInv.name }}</h1>
+<div *ngFor="let item of thisInv?.items">
+      <p>{{ item.name }} - {{ item.quantity }}</p>
+</div>
+<button type="button" class="btn btn-primary" (click)="openAddItemForm()">Add Item</button>
+<button type="button" class="btn btn-primary" (click)="addPerson()">Add Person</button>
