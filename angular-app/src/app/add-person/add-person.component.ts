@@ -23,6 +23,14 @@ export class AddPersonComponent {
     });
     this.userService.getUsers().subscribe((userResponse) => {
       this.users = userResponse;
+      this.users = this.users.map(a => a.userName);
+      // console.log("the people are " + this.inv.people);
+      for (const user of this.inv.people) {
+        if (this.users.includes(user)) {
+          const index = this.users.indexOf(user);
+          if (index !== -1) { this.users.splice(index, 1); }
+        }
+      }
     });
   }
 
@@ -37,12 +45,12 @@ export class AddPersonComponent {
       return;
     }
 
+    // update the current inv to reflect the change without needing to refresh
+    this.inv.people = this.inv.people.concat(newPerson);
+
     // make the post request to add the new person
     this.invService.addPerson(this.inv, newPerson).subscribe((response) => {
-      console.log(response);
       this.activeModal.close();
     });
-
-
   }
 }

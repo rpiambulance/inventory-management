@@ -7,13 +7,19 @@
 <div class="modal-body">
   <div class="container">
     <h2>Add Person</h2>
-    <form [formGroup]="addPersonForm" (ngSubmit)="onSubmit()">
-        <select formControlName="user">
-            <option *ngFor='let user of users' [value]="user.userName" selected="selected">
-              {{user.userName}}
-            </option>
-        </select>
-      <button type="submit">Submit</button>
-    </form>
+    <div *ngIf="users?.length > 0;else noNew">
+        <form [formGroup]="addPersonForm" (ngSubmit)="onSubmit()">
+            <select formControlName="user">
+                <option *ngFor='let user of users' [value]="user" selected="selected">
+                  {{user}}
+                </option>
+            </select>
+          <button type="submit">Submit</button>
+        </form>
+    </div>
+    <ng-template #noNew>
+      <h2>There is no one to add :(</h2>
+    </ng-template>
+    
   </div>       
 </div>
