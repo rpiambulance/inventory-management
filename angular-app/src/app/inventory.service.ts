@@ -14,7 +14,7 @@ export class InventoryService {
 
   getInventories(): Observable<Inventory[]> {
 
-    return this.http.get<any>('http://localhost:3000/inventory').pipe(map(res => {
+    return this.http.get<any>('http://localhost:3000/api/inventory').pipe(map(res => {
       const inventories = [];
       res = res.inventories;
       for (let i = 0; i < res.length; i++) {
