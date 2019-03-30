@@ -39,10 +39,17 @@ app.use('/api',apiRouter);
 
 // /api/inventory returns all inventories in the database
 apiRouter.get('/inventory', (req,res)=>{
-    Inventory.find({}, {}, (err, inventories) => {
-        if(err){res.send({success:false, error:err}); return;}
-        res.send({success:true,error:"", inventories: inventories});
-    });
+    if(req.query.id){
+        Inventory.findOne({_id: req.query.id}, (err, inventory) => {
+            if(err){res.send({success:false, error:err}); return;}
+            res.send({success:true,error:"", inventory: inventory});
+        })
+    }else{
+        Inventory.find({}, {}, (err, inventories) => {
+            if(err){res.send({success:false, error:err}); return;}
+            res.send({success:true,error:"", inventories: inventories});
+        });
+    }
 });
 
 // /api/users returns all users in the database
@@ -90,6 +97,15 @@ inventoryRouter.post('/create', (req,res)=>{
 inventoryRouter.post('/additem', (req,res) => {
     Inventory.findOne({_id: req.body.inventory.id}, (err, inventory) => {
         if(err) return console.error(err);
+        for (let item of inventory.items){
+            for (let i = req.body.items.length - 1; i >= 0; i--) {
+                // If it's a duplicate remove it and add to the current quantity
+                if (req.body.items[i].name == item.name) { 
+                    item.quantity += req.body.items[i].quantity;
+                    req.body.items.splice(i, 1);
+                }
+            }
+        }
         for (const item of req.body.items) {
             inventory.items.push(item);
         }
@@ -97,7 +113,7 @@ inventoryRouter.post('/additem', (req,res) => {
         inventory.save((err, newInv) => {
             if (err) {res.send(false); return console.error(err)};
             console.log("Successfully saved item!");
-            res.send(true);
+            res.send({success:true, items: newInv.items});
         });
     });
 });

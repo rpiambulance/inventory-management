@@ -14,6 +14,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NewInvFormComponent } from './new-inv-form/new-inv-form.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { AddPersonComponent } from './add-person/add-person.component';
+import { BarcodeComponent } from './barcode/barcode.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddPersonComponent } from './add-person/add-person.component';
     LandingPageComponent,
     NewInvFormComponent,
     AddItemFormComponent,
-    AddPersonComponent
+    AddPersonComponent,
+    BarcodeComponent
   ],
   imports: [
     BrowserModule,

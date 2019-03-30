@@ -13,7 +13,6 @@
           <div [formGroupName]="i">
             <input formControlName="name" placeholder="Item name" required>
             <input formControlName="quantity" type="number" placeholder="Current Quantity of Item" required>
-            <input formControlName="barcode" placeholder="Item Barcode">
             <button *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
           </div>
         </div>
