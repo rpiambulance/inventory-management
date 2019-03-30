@@ -24,6 +24,11 @@ export class InventoryService {
     }));
   }
 
+  getInventory(id: string): Observable<any>{
+    let requestUrl = 'http://localhost:3000/api/inventory?id=' + id;
+    return this.http.get<any>(requestUrl);
+  }
+
   createInventory(inv: Inventory): Observable<any> {
     return this.http.post('http://localhost:3000/inventory/create', inv);
   }

@@ -24,7 +24,7 @@
     <ul class="list-group list-group-flush">
 
         <!-- Use ngFor here to display all inventories 
-        after pulling from data source, Postgres? Mongo? -->
+        after pulling from Mongo -->
         <li class="list-group-item" *ngFor="let inventory of loggedInInventories">
             <a routerLink="/single-inventory/{{ inventory.id }}">{{ inventory.name }}</a>
         </li>
