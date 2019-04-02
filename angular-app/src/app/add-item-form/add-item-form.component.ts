@@ -26,8 +26,7 @@ export class AddItemFormComponent {
   createItemControl(): FormGroup {
     return this.fb.group({
       name: ['', Validators.required],
-      quantity: ['', Validators.required],
-      barcode: ['']
+      quantity: ['', Validators.required]
     });
   }
   // Allows us to keep adding items in one form
@@ -38,21 +37,33 @@ export class AddItemFormComponent {
 
   onSubmit(): void {
     console.log('Submitted');
+    console.log(this.addItemForm);
     const submitItems: Item[] = [];
+    console.log(this.inv);
     // Constructs actual item variables from this
     for (const control of this.items.controls) {
       const vals = control.value;
-      submitItems.push(new Item(vals.name, vals.quantity, vals.barcode));
+      submitItems.push(new Item(vals.name, vals.quantity, this.getHash(vals.name)));
     }
     // Add the items and close the modal
+    console.log(this.inv);
     this.invService.addItem(this.inv, submitItems).subscribe((response) => {
-      console.log(response);
-      this.inv.items = this.inv.items.concat(submitItems);
+      this.inv.items = response.items;
       this.activeModal.close();
     });
   }
 
   removeItem(index: number): void {
     this.items.removeAt(index);
+  }
+
+  // Credit to stackoverflow for this hash algorithm
+  getHash(input) : number{
+    let hash = 0, len = input.length;
+    for (let i = 0; i < len; i++) {
+      hash  = ((hash << 5) - hash) + input.charCodeAt(i);
+      hash |= 0; // to 32bit integer
+    }
+    return hash;
   }
 }

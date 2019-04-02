@@ -2,6 +2,7 @@ import { Item } from './item';
 
 export class Inventory {
 
+    public id: string;
     public name: string;
     public items: Array<Item>;
     public people: Array<string>;
@@ -14,5 +15,12 @@ export class Inventory {
         }
         this.people = invObj.people;
         this.name = invObj.name;
+        if (invObj.id) {
+            this.id = invObj.id;
+        }
+        else {
+            this.id = invObj._id;
+        }
+        // this.id = invObj._id;
     }
 }

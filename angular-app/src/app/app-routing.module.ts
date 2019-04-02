@@ -9,15 +9,19 @@ import { NewInvFormComponent } from './new-inv-form/new-inv-form.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { LandingPageComponent}  from './landing-page/landing-page.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import { AddPersonComponent } from './add-person/add-person.component';
+import { BarcodeComponent } from './barcode/barcode.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inventory', component: InventoryComponent, canActivate: [AuthGuard] },
-  { path: 'single-inventory/:name', component: SingleInventoryComponent, canActivate: [AuthGuard] },
+  { path: 'single-inventory/:id', component: SingleInventoryComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent},
   { path: 'landing-page',component: LandingPageComponent},
   { path: 'newInvForm', component: NewInvFormComponent, canActivate: [AuthGuard]},
-  { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard]}
+  { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard] },
+  { path: 'addPerson', component: AddPersonComponent, canActivate: [AuthGuard] },
+  { path: 'barcode/:id', component: BarcodeComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -14,7 +14,7 @@ export class InventoryService {
 
   getInventories(): Observable<Inventory[]> {
 
-    return this.http.get<any>('http://localhost:3000/inventory').pipe(map(res => {
+    return this.http.get<any>('http://localhost:3000/api/inventory').pipe(map(res => {
       const inventories = [];
       res = res.inventories;
       for (let i = 0; i < res.length; i++) {
@@ -24,11 +24,20 @@ export class InventoryService {
     }));
   }
 
+  getInventory(id: string): Observable<any>{
+    let requestUrl = 'http://localhost:3000/api/inventory?id=' + id;
+    return this.http.get<any>(requestUrl);
+  }
+
   createInventory(inv: Inventory): Observable<any> {
     return this.http.post('http://localhost:3000/inventory/create', inv);
   }
 
   addItem(inv: Inventory, itemsArray: Item[]): Observable<Inventory> {
     return this.http.post<Inventory>('http://localhost:3000/inventory/additem', {inventory: inv, items: itemsArray});
+  }
+
+  addPerson(inv: Inventory, newPerson: string): Observable<any> {
+    return this.http.post('http://localhost:3000/inventory/' + inv.id, { user: newPerson });
   }
 }
