@@ -1,20 +1,20 @@
 <h1>Inventory Management System</h1>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+<nav class="navbar navbar-expand-lg bg-light"> 
 	<div class="collapse navbar-collapse" id="navbarNav">
 		<ul class="navbar-nav">
 			<li class="nav-item">
-				<button type="button" placement="left">
-					<a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+				<button type="button" class = "btn btn-dark mr-2" placement="left">
+					<a class="nav-link text-light" routerLink="/about" routerLinkActive="active">About</a>
 	           </button>
 			</li>
 			<li class="nav-item" [hidden]="loggedIn">
-				<button type="button" placement="middle">
-					<a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+				<button type="button" class = "btn btn-success mr-2" placement="middle">
+					<a class="nav-link text-light" routerLink="/login" routerLinkActive="active">Login</a>
 				</button>
 			</li>
 			<li class="nav-item" [hidden]="!loggedIn">
-				<button type="button" placement="right">
-					<a class="nav-link" routerLink="/inventory" routerLinkActive="active"> Inventory</a>
+				<button type="button" class = "btn btn-info mr-2" placement="right">
+					<a class="nav-link text-light" routerLink="/inventory" routerLinkActive="active"> Inventory</a>
 				</button>
 			</li>
 			<li class="nav-item" [hidden]="!loggedIn">
