@@ -1,6 +1,26 @@
-<h1>{{ thisInv.name }}</h1>
-<div *ngFor="let item of thisInv?.items">
-      <p>{{ item.name }} - {{ item.quantity }}</p>
+<div class = "container">
+
+	<h1>{{ thisInv.name }}</h1>
+
+	<table class=table>
+		<thead>
+			<tr>
+				<th scope="col">Item</th>
+				<th scope="col">Quantity</th>
+			</tr>
+		</thead>
+		<tbody *ngFor="let item of thisInv?.items">
+			<tr>
+				<td>{{item.name}}</td>
+				<td>{{item.quantity}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<button type="button" class="btn btn-primary float-right" (click)="openAddItemForm()">Add Item</button>
+	<button type="button" class="btn btn-primary mr-3 float-right" (click)="addPerson()">Add Person</button>
+
 </div>
 <button type="button" class="btn btn-primary" (click)="openAddItemForm()">Add Item</button>
 <button type="button" class="btn btn-primary" (click)="addPerson()">Add Person</button>
+<button type="button" class="btn btn-primary" routerLink="/barcode/{{ id }}">View Barcodes</button>
