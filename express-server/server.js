@@ -100,7 +100,7 @@ inventoryRouter.post('/additem', (req,res) => {
         for (let item of inventory.items){
             for (let i = req.body.items.length - 1; i >= 0; i--) {
                 // If it's a duplicate remove it and add to the current quantity
-                if (req.body.items[i].name == item.name) { 
+                if (req.body.items[i].name == item.name) {
                     item.quantity += req.body.items[i].quantity;
                     req.body.items.splice(i, 1);
                 }
@@ -120,7 +120,7 @@ inventoryRouter.post('/additem', (req,res) => {
 
 // TODO: give it a better, more unique endpoint
 // /inventory/:id responsible for adding a user to have access
-inventoryRouter.post('/:id', (req,res)=>{
+inventoryRouter.post('/:id/add', (req,res)=>{
     var invId = req.params.id;
     Inventory.findOne({ _id: invId }, (err, inv) => {
         if (err) return console.log(err);

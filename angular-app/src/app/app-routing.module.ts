@@ -9,6 +9,7 @@ import { NewInvFormComponent } from './new-inv-form/new-inv-form.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { AddPersonComponent } from './add-person/add-person.component';
+import { RemovePersonComponent } from './remove-person/remove-person.component';
 import { BarcodeComponent } from './barcode/barcode.component';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'newInvForm', component: NewInvFormComponent, canActivate: [AuthGuard]},
   { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard] },
   { path: 'addPerson', component: AddPersonComponent, canActivate: [AuthGuard] },
+  { path: 'removePerson', component: RemovePersonComponent, canActivate: [AuthGuard] },
   { path: 'barcode/:id', component: BarcodeComponent, canActivate: [AuthGuard] }
 ];
 

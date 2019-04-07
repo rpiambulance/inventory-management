@@ -5,6 +5,7 @@ import { InventoryService } from '../inventory.service';
 import { ActivatedRoute } from '@angular/router';
 import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 import { AddPersonComponent } from '../add-person/add-person.component';
+import { RemovePersonComponent } from '../remove-person/remove-person.component';
 
 @Component({
   selector: 'app-single-inventory',
@@ -21,6 +22,7 @@ export class SingleInventoryComponent implements OnInit {
 
   // This is the form that we will use to add items to an inventory
   addItemForm: AddItemFormComponent;
+
 
   // ActivatedRoute for query params
   // GetInventoryService for mock data
@@ -57,6 +59,11 @@ export class SingleInventoryComponent implements OnInit {
     openModal.componentInstance.inv = this.thisInv;
   }
 
+  removePerson(): void {
+    const openModal = this.modal.open(RemovePersonComponent, { size: 'lg' });
+
+    openModal.componentInstance.inv = this.thisInv;
+  }
   // Opens up the add person form modal
   addPerson(): void {
     const openModal = this.modal.open(AddPersonComponent, { size: 'lg' });
