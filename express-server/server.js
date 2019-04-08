@@ -84,7 +84,7 @@ inventoryRouter.post('/create', (req,res)=>{
         // If there's an error we say so
         if (err) {res.send({success:false, error:err}); return;}
         // Adds new inventory to the mongoose database.
-        let newInv = new Inventory({ name: req.body.name, items:[], people:[decoded.userName] });
+        let newInv = new Inventory({ name: req.body.name, items:[], people:[decoded.userName], owner: decoded.userName });
         newInv.save((err, newInv) => {
             if (err) return console.error(err);
             console.log("Successfully saved inventory!");

@@ -24,8 +24,8 @@ export class InventoryService {
     }));
   }
 
-  getInventory(id: string): Observable<any>{
-    let requestUrl = 'http://localhost:3000/api/inventory?id=' + id;
+  getInventory(id: string): Observable<any> {
+    const requestUrl = 'http://localhost:3000/api/inventory?id=' + id;
     return this.http.get<any>(requestUrl);
   }
 
