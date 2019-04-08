@@ -137,17 +137,14 @@ inventoryRouter.post('/:id/add', (req,res)=>{
 // TODO: give it a better, more unique endpoint
 // /inventory/:id responsible for adding a user to have access
 inventoryRouter.post('/:id/remove', (req,res)=>{
-    // var invId = req.params.id;
-    // Inventory.findOne({ _id: invId }, (err, inv) => {
-    //     if (err) return console.log(err);
-    //     inv.people.push(req.body.user)
-
-    //     inv.save((err) => {
-    //         if (err) { res.send({ success: false, error: err }); return console.error(err) };
-    //         console.log("Successfully added a new user to the inventory!");
+    var invId = req.params.id;
+    Inventory.findOneAndUpdate({ _id: invId }, { $pull: { people: req.body.user } }, (err, inv) => {
+        inv.save((err) => {
+            if (err) { res.send({ success: false, error: err }); return console.error(err) };
+            console.log("Successfully removed a user from the inventory!");
             res.send({ success: true, error: "", id: req.params.id });
-    //     })
-    // })
+        })
+    })
 });
 
 
