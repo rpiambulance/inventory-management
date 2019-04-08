@@ -22,7 +22,8 @@ export class AddPersonComponent {
       user: new FormControl('')
     });
     this.userService.getUsers().subscribe((userResponse) => {
-      this.users = userResponse.users;
+      // tslint:disable-next-line:no-string-literal
+      this.users = userResponse['users'];
       this.users = this.users.map(a => a.userName);
       // console.log("the people are " + this.inv.people);
       for (const user of this.inv.people) {
@@ -38,8 +39,13 @@ export class AddPersonComponent {
     console.log('Submitted');
 
     const newPerson = this.addPersonForm.controls.user.value;
- 
- 
+
+    // if the person already exists, don't add
+    if (this.inv.people.includes(newPerson)) {
+      alert('ERROR: User already has permission');
+      return;
+    }
+
     // update the current inv to reflect the change without needing to refresh
     this.inv.people = this.inv.people.concat(newPerson);
 
