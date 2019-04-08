@@ -18,11 +18,13 @@ const routes: Routes = [
   { path: 'single-inventory/:id', component: SingleInventoryComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent},
   { path: 'landing-page',component: LandingPageComponent},
+  { path: '**', redirectTo: '/landing-page', pathMatch: 'full' },
   { path: 'newInvForm', component: NewInvFormComponent, canActivate: [AuthGuard]},
   { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard] },
   { path: 'addPerson', component: AddPersonComponent, canActivate: [AuthGuard] },
   { path: 'barcode/:id', component: BarcodeComponent, canActivate: [AuthGuard] }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

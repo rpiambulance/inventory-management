@@ -1,34 +1,26 @@
-/* better ID names
-*/
+
+
 h2{
   position: center;
+   font-size: 1.5rem;
 }
 
 body {
-  font-family: 'Calibri';/*round font*/
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  background-color:#f0f8ff;
-  color: #535399; /*text color */
   font-size: 1.5rem;
 }
 
 .container{
-    font-family: 'Acta Display';/*round font 2*/
-    width: 100%;
-    background-color: #a3d4ff;
-    padding: 1rem;
-    position: center;
-    margin: 5rem;
+  width: 100%;
+  padding: 1rem;
+  position: center;
+  margin: 5rem;
 }
 
-#mainText{/*register today font*/
+#mainText{
   text-align: center;
-}
-
-#linkStyle{
-  font-family: 'Calibri';
 }
 
 #text{
@@ -48,7 +40,5 @@ body {
   float: right;
 
 }
-
-
 
 

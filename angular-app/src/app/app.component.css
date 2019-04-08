@@ -1,50 +1,31 @@
-/*I used https://startbootstrap.com/template-overviews/business-casual
-for reference but ended up rewritting pretty much everything
-*/
-
-h1{ 
-    font-weight: 800;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    font-family: 'Acta Display';    
-    text-align: center;
-    /*color:#000000; black*/
-}
-
-.site-heading {  /*popped site name*/
+.site-heading { 
   margin-top: 5rem;
   margin-bottom: 5rem;
-  text-transform: uppercase;
   line-height: 1;
-  font-family: 'Calibri';
   font-size: 5rem;
   font-weight: 100;
   line-height: 4rem;
-  
 }
+
 /*header.masthead .site-heading {
   padding: 200px 0 150px;
-  color: white;
+  color: black;
   text-align: center;
   font-size: 50px;
   margin-top: 0;
+
 }
 */
-#navbarNav{
+/*#navbarNav{
   font-weight: 300;
   font-size: 2rem;
-  font-family: 'Calibri';
-  /* background: #535f6b;lighter 
-
-  font-color:#47515b;slate*/
+  background: #535f6b;
   padding-left: 15rem; 
-}
+}*/
 
 #mainNav {
   position: absolute;
-  border-bottom: 1px solid #e9ecef;
-  background-color: white;
-  font-family: 'Calibri';
+  border-bottom: 1px solid #e9ecef;/*grey line at the botto of the nav bar*/
 }
 
 #mainNav .navbar-brand {
@@ -56,19 +37,18 @@ h1{
   font-size: 12px;
   font-weight: 800;
   padding: 13px;
-  text-transform: uppercase;
-  color: #343a40;
+ color: #343a40;
 }
 #mainNav .navbar-nav > li.nav-item > a {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
-  text-transform: uppercase;
 }
-a{/*all the links*/
+
+a{
   display: inline;
-  color: #212529;
-  -webkit-transition: all 0.2s;
+color: #212529;
+ -webkit-transition: all 0.2s;
   transition: all 0.2s;
 
 }
@@ -79,7 +59,7 @@ li.nav-item{
   padding-left: 5rem; 
 }
 .search{
-  font-color:#47515b;/*slate*/
+  font-color:#47515b;
 }
 
 .form-inline{
@@ -88,14 +68,12 @@ li.nav-item{
 
 body{
   font-size: 20px;
-  color: #212529;
-  font-family: 'Calibri';
+ color: #212529;
 }
 
 footer {
   padding: 50px 0 65px;
   text-decoration: underline;
-  font-family: 'Calibri';
 }
 
 footer .list-inline {
@@ -107,4 +85,17 @@ footer .copyright {
   font-size: 14px;
   margin-bottom: 0;
   text-align: center;
+}
+
+h1{ 
+  font-weight: 800;
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color:#000000; 
+}
+
+
+#mainNav {
+  position: absolute;
 }
