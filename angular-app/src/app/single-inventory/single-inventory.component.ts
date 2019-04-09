@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 import { AddPersonComponent } from '../add-person/add-person.component';
 import { RemovePersonComponent } from '../remove-person/remove-person.component';
+import { User } from '../user';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-single-inventory',
@@ -17,6 +19,9 @@ export class SingleInventoryComponent implements OnInit {
   // name of inventory
   id: string;
 
+  // The user currently logged in 
+  loggedIn: User = new User('', '', '' , '', '');
+
   // local copy of inventory contents
   thisInv: Inventory = new Inventory({items: [], name: '', id: -1, people: []});
 
@@ -26,7 +31,7 @@ export class SingleInventoryComponent implements OnInit {
 
   // ActivatedRoute for query params
   // GetInventoryService for mock data
-  constructor(private route: ActivatedRoute, private data: InventoryService, private modal: NgbModal) { }
+  constructor(private route: ActivatedRoute, private data: InventoryService, private authService: AuthService, private modal: NgbModal) { }
 
   ngOnInit() {
     // getting the name of the inventory to display
@@ -47,6 +52,10 @@ export class SingleInventoryComponent implements OnInit {
             break;
           }
         }
+      });
+      this.authService.getUser(localStorage.getItem('auth_token')).subscribe(response => {
+        this.loggedIn = response.user;
+        console.log(this.loggedIn);
       });
     });
   }
