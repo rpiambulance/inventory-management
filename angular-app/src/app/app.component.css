@@ -5,27 +5,7 @@
   font-size: 5rem;
   font-weight: 100;
   line-height: 4rem;
-}
-
-/*header.masthead .site-heading {
-  padding: 200px 0 150px;
-  color: black;
-  text-align: center;
-  font-size: 50px;
-  margin-top: 0;
-
-}
-*/
-/*#navbarNav{
-  font-weight: 300;
-  font-size: 2rem;
-  background: #535f6b;
-  padding-left: 15rem; 
-}*/
-
-#mainNav {
-  position: absolute;
-  border-bottom: 1px solid #e9ecef;/*grey line at the botto of the nav bar*/
+  /*background-color: #a4d4ff;*/
 }
 
 #mainNav .navbar-nav > li.nav-item > a {
@@ -34,30 +14,45 @@
   letter-spacing: 1px;
 }
 
-a{
+.navbar a{
   display: inline;
   color: #212529;
   transition: all 0.2s;
 }
 
-/*a:focus, a:hover {
+.navbar a:hover {
+  background-color: #a4d4ff;
   color: #0085A1;
-}*/
+}
 
 li.nav-item{
   padding-left: 5rem; 
 }
-.search{
-  font-color:#47515b;
-}
-
-.form-inline{
-  padding-left: 15rem;  
-}
-
 body{
   font-size: 20px;
   color: #212529;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar a:not(:first-child) {display: none;}
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar.responsive {position: relative;}
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
 footer {
@@ -76,15 +71,5 @@ footer .copyright {
   text-align: center;
 }
 
-h1{ 
-  font-weight: 800;
-  font-size: 5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  color:#000000; 
-}
 
 
-#mainNav {
-  position: absolute;
-}
