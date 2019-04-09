@@ -5,6 +5,9 @@ import { InventoryService } from '../inventory.service';
 import { ActivatedRoute } from '@angular/router';
 import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 import { AddPersonComponent } from '../add-person/add-person.component';
+import { RemovePersonComponent } from '../remove-person/remove-person.component';
+import { User } from '../user';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-single-inventory',
@@ -16,15 +19,19 @@ export class SingleInventoryComponent implements OnInit {
   // name of inventory
   id: string;
 
+  // The user currently logged in 
+  loggedIn: User = new User('', '', '' , '', '');
+
   // local copy of inventory contents
   thisInv: Inventory = new Inventory({items: [], name: '', id: -1, people: []});
 
   // This is the form that we will use to add items to an inventory
   addItemForm: AddItemFormComponent;
 
+
   // ActivatedRoute for query params
   // GetInventoryService for mock data
-  constructor(private route: ActivatedRoute, private data: InventoryService, private modal: NgbModal) { }
+  constructor(private route: ActivatedRoute, private data: InventoryService, private authService: AuthService, private modal: NgbModal) { }
 
   ngOnInit() {
     // getting the name of the inventory to display
@@ -46,6 +53,10 @@ export class SingleInventoryComponent implements OnInit {
           }
         }
       });
+      this.authService.getUser(localStorage.getItem('auth_token')).subscribe(response => {
+        this.loggedIn = response.user;
+        console.log(this.loggedIn);
+      });
     });
   }
 
@@ -57,6 +68,11 @@ export class SingleInventoryComponent implements OnInit {
     openModal.componentInstance.inv = this.thisInv;
   }
 
+  removePerson(): void {
+    const openModal = this.modal.open(RemovePersonComponent, { size: 'lg' });
+
+    openModal.componentInstance.inv = this.thisInv;
+  }
   // Opens up the add person form modal
   addPerson(): void {
     const openModal = this.modal.open(AddPersonComponent, { size: 'lg' });

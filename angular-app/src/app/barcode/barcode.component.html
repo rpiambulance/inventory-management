@@ -4,7 +4,7 @@
 <h1>Barcodes for {{invName}}</h1>
 <div class="barcodes">
   <div id="barcode" *ngFor="let item of items">
-      <img alt="Barcode for {{item.name}}" src="http://bwipjs-api.metafloor.com/?bcid=code128&text={{item.barcode}}&includetext"/>
+      <img alt="Barcode for {{item.name}}" src="http://bwipjs-api.metafloor.com/?bcid=code39&text={{item.barcode}}&includetext"/>
       <p>{{item.name}}</p>
   </div>
 </div>

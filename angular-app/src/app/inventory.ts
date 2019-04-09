@@ -6,6 +6,7 @@ export class Inventory {
     public name: string;
     public items: Array<Item>;
     public people: Array<string>;
+    public owner: string;
 
     constructor(invObj: any) {
         this.items = [];
@@ -17,10 +18,10 @@ export class Inventory {
         this.name = invObj.name;
         if (invObj.id) {
             this.id = invObj.id;
-        }
-        else {
+        } else {
             this.id = invObj._id;
         }
+        this.owner = invObj.owner;
         // this.id = invObj._id;
     }
 }
