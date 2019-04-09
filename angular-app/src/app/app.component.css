@@ -28,33 +28,29 @@
   border-bottom: 1px solid #e9ecef;/*grey line at the botto of the nav bar*/
 }
 
-#mainNav .navbar-brand {
-  font-weight: 800;
-  color: #343a40;
-}
-
 #mainNav .navbar-toggler {
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 800;
   padding: 13px;
  color: #343a40;
 }
 #mainNav .navbar-nav > li.nav-item > a {
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: 1px;
 }
 
 a{
   display: inline;
-color: #212529;
+  color: #212529;
  -webkit-transition: all 0.2s;
   transition: all 0.2s;
-
 }
+
 a:focus, a:hover {
   color: #0085A1;
 }
+
 li.nav-item{
   padding-left: 5rem; 
 }
