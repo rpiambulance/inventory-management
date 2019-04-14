@@ -37,6 +37,8 @@ export class RemovePersonComponent {
 
     const person = this.removePersonForm.controls.user.value;
 
+    this.inv.people = this.inv.people.splice(this.inv.people.indexOf(person), 1);
+
     // make the post request to remove the person
     this.invService.removePerson(this.inv, person).subscribe((response) => {
       this.activeModal.close();
