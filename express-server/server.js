@@ -118,6 +118,21 @@ inventoryRouter.post('/additem', (req,res) => {
     });
 });
 
+inventoryRouter.post('/update', (req, res) => {
+    Inventory.findOne({_id: req.body.id}, (err, inventory) => {
+        if(err) return console.error(err);
+        // We have to go through and update the quantities on the database object
+        for(let i = 0; i < inventory.items.length; i++){
+            inventory.items[i].quantity = req.body.items[i].quantity
+        }
+        // Updates the inventory
+        inventory.save((err, newInv) => {
+            if (err) {res.send(false); return console.error(err)};
+            console.log("Successfully updated the inventory!");
+            res.send({success:true, inv: newInv});
+        });
+    });
+});
 // TODO: give it a better, more unique endpoint
 // /inventory/:id responsible for adding a user to have access
 inventoryRouter.post('/:id/add', (req,res)=>{

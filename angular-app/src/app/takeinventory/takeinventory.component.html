@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h4 class="modal-title">Take Inventory via Barcode</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+<div class="container">
+    <h1>Take Inventory Via Barcode</h1>
+    <form [formGroup]="takeInventoryForm" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
+      <div formArrayName="items" *ngFor="let item of takeInventoryForm.get('items').controls; let i = index;">
+        <div [formGroupName]="i">
+          <div [hidden]="item.controls.barcode.valid || item.controls.barcode.pristine" class="alert alert-danger">
+            Invalid Barcode!
+          </div>
+          <input formControlName="barcode" placeholder="Item's barcode" required>
+          <input formControlName="quantity" type="number" placeholder="Current Quantity of Item" (keydown.enter)="onEnter()"required>
+          <button *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
+        </div>
+      </div>
+      <button type="submit" [disabled]="!takeInventoryForm.valid">Submit</button>
+    </form>
+</div>        
+</div>

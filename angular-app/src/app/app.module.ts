@@ -16,6 +16,7 @@ import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { AddPersonComponent } from './add-person/add-person.component';
 import { BarcodeComponent } from './barcode/barcode.component';
 import { RemovePersonComponent } from './remove-person/remove-person.component';
+import { TakeinventoryComponent } from './takeinventory/takeinventory.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RemovePersonComponent } from './remove-person/remove-person.component';
     AddItemFormComponent,
     AddPersonComponent,
     BarcodeComponent,
-    RemovePersonComponent
+    RemovePersonComponent,
+    TakeinventoryComponent
   ],
   imports: [
     BrowserModule,
