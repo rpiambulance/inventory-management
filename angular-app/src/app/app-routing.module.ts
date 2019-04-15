@@ -11,6 +11,7 @@ import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { AddPersonComponent } from './add-person/add-person.component';
 import { RemovePersonComponent } from './remove-person/remove-person.component';
 import { BarcodeComponent } from './barcode/barcode.component';
+import { TakeinventoryComponent } from './takeinventory/takeinventory.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'addItemForm', component: AddItemFormComponent, canActivate: [AuthGuard] },
   { path: 'addPerson', component: AddPersonComponent, canActivate: [AuthGuard] },
   { path: 'removePerson', component: RemovePersonComponent, canActivate: [AuthGuard] },
-  { path: 'barcode/:id', component: BarcodeComponent, canActivate: [AuthGuard] }
+  { path: 'barcode/:id', component: BarcodeComponent, canActivate: [AuthGuard] },
+  { path: 'takeInventoryForm', component: TakeinventoryComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 import { AddPersonComponent } from '../add-person/add-person.component';
 import { RemovePersonComponent } from '../remove-person/remove-person.component';
+import { TakeinventoryComponent } from '../takeinventory/takeinventory.component';
 import { User } from '../user';
 import { AuthService } from '../auth.service';
 
@@ -73,6 +74,12 @@ export class SingleInventoryComponent implements OnInit {
 
     openModal.componentInstance.inv = this.thisInv;
   }
+  
+  openTakeInventory(): void {
+    const openModal = this.modal.open(TakeinventoryComponent, {size: 'lg'});
+    openModal.componentInstance.inv = this.thisInv;
+  }
+
   // Opens up the add person form modal
   addPerson(): void {
     const openModal = this.modal.open(AddPersonComponent, { size: 'lg' });
