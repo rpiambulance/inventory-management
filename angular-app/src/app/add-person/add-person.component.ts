@@ -22,6 +22,7 @@ export class AddPersonComponent {
       user: new FormControl('')
     });
     this.userService.getUsers().subscribe((userResponse) => {
+      // tslint:disable-next-line:no-string-literal
       this.users = userResponse['users'];
       this.users = this.users.map(a => a.userName);
       // console.log("the people are " + this.inv.people);

@@ -15,6 +15,8 @@ import { NewInvFormComponent } from './new-inv-form/new-inv-form.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { AddPersonComponent } from './add-person/add-person.component';
 import { BarcodeComponent } from './barcode/barcode.component';
+import { RemovePersonComponent } from './remove-person/remove-person.component';
+import { TakeinventoryComponent } from './takeinventory/takeinventory.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { BarcodeComponent } from './barcode/barcode.component';
     NewInvFormComponent,
     AddItemFormComponent,
     AddPersonComponent,
-    BarcodeComponent
+    BarcodeComponent,
+    RemovePersonComponent,
+    TakeinventoryComponent
   ],
   imports: [
     BrowserModule,

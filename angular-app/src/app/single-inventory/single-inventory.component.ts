@@ -5,6 +5,10 @@ import { InventoryService } from '../inventory.service';
 import { ActivatedRoute } from '@angular/router';
 import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 import { AddPersonComponent } from '../add-person/add-person.component';
+import { RemovePersonComponent } from '../remove-person/remove-person.component';
+import { TakeinventoryComponent } from '../takeinventory/takeinventory.component';
+import { User } from '../user';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-single-inventory',
@@ -16,15 +20,19 @@ export class SingleInventoryComponent implements OnInit {
   // name of inventory
   id: string;
 
+  // The user currently logged in 
+  loggedIn: User = new User('', '', '' , '', '');
+
   // local copy of inventory contents
   thisInv: Inventory = new Inventory({items: [], name: '', id: -1, people: []});
 
   // This is the form that we will use to add items to an inventory
   addItemForm: AddItemFormComponent;
 
+
   // ActivatedRoute for query params
   // GetInventoryService for mock data
-  constructor(private route: ActivatedRoute, private data: InventoryService, private modal: NgbModal) { }
+  constructor(private route: ActivatedRoute, private data: InventoryService, private authService: AuthService, private modal: NgbModal) { }
 
   ngOnInit() {
     // getting the name of the inventory to display
@@ -46,6 +54,10 @@ export class SingleInventoryComponent implements OnInit {
           }
         }
       });
+      this.authService.getUser(localStorage.getItem('auth_token')).subscribe(response => {
+        this.loggedIn = response.user;
+        console.log(this.loggedIn);
+      });
     });
   }
 
@@ -54,6 +66,17 @@ export class SingleInventoryComponent implements OnInit {
     const openModal = this.modal.open(AddItemFormComponent, { size: 'lg' });
     console.log(this.thisInv);
     // Passes inventory onto the add item config so they can be added to the correct inv
+    openModal.componentInstance.inv = this.thisInv;
+  }
+
+  removePerson(): void {
+    const openModal = this.modal.open(RemovePersonComponent, { size: 'lg' });
+
+    openModal.componentInstance.inv = this.thisInv;
+  }
+  
+  openTakeInventory(): void {
+    const openModal = this.modal.open(TakeinventoryComponent, {size: 'lg'});
     openModal.componentInstance.inv = this.thisInv;
   }
 

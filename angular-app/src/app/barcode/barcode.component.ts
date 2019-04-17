@@ -14,6 +14,14 @@ export class BarcodeComponent implements OnInit {
   id: string;
   // Message
   message: string;
+  // All the types of barcodes which the user can choose from
+  barCodes = [
+    {val: 'code39', name: 'Code 39'},
+    {val: 'code128', name: 'Code 128'}, 
+    {val: 'code11', name: 'Code 11'},
+    {val: 'qrcode', name: 'QR Code'}
+  ];
+  currentBarcodeFormat = this.barCodes[0].val;
   // Success
   barcodeSuccess: boolean = true;
   // The items in that inventory
@@ -42,6 +50,10 @@ export class BarcodeComponent implements OnInit {
         });
       }
     });
+  }
+
+  onSelect(e): void{
+    this.currentBarcodeFormat = e;
   }
 
 }

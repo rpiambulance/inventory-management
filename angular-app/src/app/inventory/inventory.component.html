@@ -18,14 +18,20 @@
     </nav>
 
     <p *ngIf="loggedInInventories.length == 0">You don't have any inventories :(</p>
-
-    <ul class="list-group list-group-flush">
-
-        <!-- Use ngFor here to display all inventories 
-        after pulling from Mongo -->
-        <li class="list-group-item" *ngFor="let inventory of loggedInInventories">
-            <a routerLink="/single-inventory/{{ inventory.id }}">{{ inventory.name }}</a>
-        </li>
-    </ul>
-
+    <table class=table>
+      <thead>
+        <tr>
+          <th scope="col">Inventory</th>
+          <th scope="col"># of Unique Items</th>
+          <th scope="col">Owner</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let inventory of loggedInInventories">
+        <tr>
+          <td><a routerLink="/single-inventory/{{ inventory.id }}">{{ inventory.name }}</a></td>
+          <td>{{ inventory.items.length }}</td>
+          <td>{{ inventory.owner }}</td>
+        </tr>
+      </tbody>
+    </table>
 </div>

@@ -2,9 +2,17 @@
   {{ message }}
 </div>
 <h1>Barcodes for {{invName}}</h1>
+<div>
+  <select (change)="onSelect($event.target.value)">
+    <option *ngFor="let barcode of barCodes" value="{{barcode.val}}">
+      {{barcode.name}}
+    </option>
+  </select>
+</div>
+<br/>
 <div class="barcodes">
   <div id="barcode" *ngFor="let item of items">
-      <img alt="Barcode for {{item.name}}" src="http://bwipjs-api.metafloor.com/?bcid=code128&text={{item.barcode}}&includetext"/>
+      <img alt="Barcode for {{item.name}}" src="http://bwipjs-api.metafloor.com/?bcid={{currentBarcodeFormat}}&text={{item.barcode}}&includetext"/>
       <p>{{item.name}}</p>
   </div>
 </div>

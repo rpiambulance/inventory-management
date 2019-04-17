@@ -84,7 +84,7 @@ inventoryRouter.post('/create', (req,res)=>{
         // If there's an error we say so
         if (err) {res.send({success:false, error:err}); return;}
         // Adds new inventory to the mongoose database.
-        let newInv = new Inventory({ name: req.body.name, items:[], people:[decoded.userName] });
+        let newInv = new Inventory({ name: req.body.name, items:[], people:[decoded.userName], owner: decoded.userName });
         newInv.save((err, newInv) => {
             if (err) return console.error(err);
             console.log("Successfully saved inventory!");
@@ -100,7 +100,7 @@ inventoryRouter.post('/additem', (req,res) => {
         for (let item of inventory.items){
             for (let i = req.body.items.length - 1; i >= 0; i--) {
                 // If it's a duplicate remove it and add to the current quantity
-                if (req.body.items[i].name == item.name) { 
+                if (req.body.items[i].name == item.name) {
                     item.quantity += req.body.items[i].quantity;
                     req.body.items.splice(i, 1);
                 }
@@ -118,9 +118,24 @@ inventoryRouter.post('/additem', (req,res) => {
     });
 });
 
+inventoryRouter.post('/update', (req, res) => {
+    Inventory.findOne({_id: req.body.id}, (err, inventory) => {
+        if(err) return console.error(err);
+        // We have to go through and update the quantities on the database object
+        for(let i = 0; i < inventory.items.length; i++){
+            inventory.items[i].quantity = req.body.items[i].quantity
+        }
+        // Updates the inventory
+        inventory.save((err, newInv) => {
+            if (err) {res.send(false); return console.error(err)};
+            console.log("Successfully updated the inventory!");
+            res.send({success:true, inv: newInv});
+        });
+    });
+});
 // TODO: give it a better, more unique endpoint
 // /inventory/:id responsible for adding a user to have access
-inventoryRouter.post('/:id', (req,res)=>{
+inventoryRouter.post('/:id/add', (req,res)=>{
     var invId = req.params.id;
     Inventory.findOne({ _id: invId }, (err, inv) => {
         if (err) return console.log(err);
@@ -130,6 +145,19 @@ inventoryRouter.post('/:id', (req,res)=>{
             if (err) { res.send({ success: false, error: err }); return console.error(err) };
             console.log("Successfully added a new user to the inventory!");
             res.send({ success: true, error: "" });
+        })
+    })
+});
+
+// TODO: give it a better, more unique endpoint
+// /inventory/:id responsible for adding a user to have access
+inventoryRouter.post('/:id/remove', (req,res)=>{
+    var invId = req.params.id;
+    Inventory.findOneAndUpdate({ _id: invId }, { $pull: { people: req.body.user } }, (err, inv) => {
+        inv.save((err) => {
+            if (err) { res.send({ success: false, error: err }); return console.error(err) };
+            console.log("Successfully removed a user from the inventory!");
+            res.send({ success: true, error: "", id: req.params.id });
         })
     })
 });
