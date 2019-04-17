@@ -1,17 +1,25 @@
-
-
-h2{
-  position: center;
-   font-size: 1.5rem;
-}
-
-body {
+/*body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
   font-size: 1.5rem;
+  color:blue;
+}*/
+
+#section-heading-lower{
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  font-size: 1.5rem;
+  color:blue;
 }
 
+#card-text{
+
+  font-size: 10rem;
+  color:blue;
+
+}
 .container{
   width: 100%;
   padding: 1rem;
