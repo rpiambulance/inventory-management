@@ -15,7 +15,8 @@ export class RemoveInventoryComponent  {
 
   removeInventoryForm: FormGroup;
   removableInventories: Inventory[] = [];
-  inv: Inventory[];
+  invs: any;
+  // inv: Inventory[];
   loggedIn: User;
   constructor(private fb: FormBuilder, public activeModal: NgbActiveModal,
               private authService: AuthService, private invService: InventoryService) {
@@ -37,11 +38,31 @@ export class RemoveInventoryComponent  {
           this.removableInventories.push(inv);
         }
       }
+      this.invs = this.removableInventories.map(a => a.name);
     });
   }
   
   onSubmit(): void {
-  
+    let inventory;
+    const toRemove = this.removeInventoryForm.controls.inv.value;
+    for (const inv of this.removableInventories) {
+      if (toRemove === inv.name) {
+        console.log("found");
+        inventory = inv;
+      }
+    }
+
+    console.log(inventory);
+
+    this.invs.splice(this.invs.indexOf(toRemove), 1);
+
+    console.log(this.invs);
+
+
+    this.invService.removeInventory(inventory).subscribe((response) => {
+      this.activeModal.close();
+    });
+
   }
 
 

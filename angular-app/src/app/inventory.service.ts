@@ -42,10 +42,14 @@ export class InventoryService {
   }
 
   removePerson(inv: Inventory, person: string): Observable<any> {
-    return this.http.post('http://localhost:3000/inventory/' + inv.id + '/remove', { user: person });
+    return this.http.post('http://localhost:3000/inventory/' + inv.id + '/remove/items', { user: person });
   }
 
   updateInventory(inv: Inventory): Observable<any> {
     return this.http.post('http://localhost:3000/inventory/update', inv);
+  }
+
+  removeInventory(inv: Inventory): Observable<any> {
+    return this.http.post('http://localhost:3000/inventory/' + inv.id + '/remove', {});
   }
 }
