@@ -5,6 +5,10 @@
   font-size: 1.5rem;
   color:blue;
 }*/
+body{
+  background-color: #191970;
+  padding: 5rem;
+}
 
 #section-heading-lower{
   background-attachment: fixed;
@@ -25,7 +29,10 @@
   padding: 1rem;
   position: center;
   margin: 5rem;
-  background-color:  #bde0ff;/*alice blue*/
+  padding-top: 2rem;
+  margin-bottom: 0;/*remove the weird space between body and footer*/
+  background-color: #ffdfe5 ;/*#bde0ff,alice blue*/
+
 }
 
 #mainText{
