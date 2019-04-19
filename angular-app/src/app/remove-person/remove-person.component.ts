@@ -42,7 +42,6 @@ export class RemovePersonComponent {
     // make the post request to remove the person
     this.invService.removePerson(this.inv, person).subscribe((response) => {
       this.activeModal.close();
-      window.location.reload();
     });
   }
 

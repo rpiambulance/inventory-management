@@ -41,26 +41,28 @@ export class RemoveInventoryComponent  {
       this.invs = this.removableInventories.map(a => a.name);
     });
   }
-  
+
+  // press the button
   onSubmit(): void {
     let inventory;
     const toRemove = this.removeInventoryForm.controls.inv.value;
+
+    // match the selected string to the inventory
     for (const inv of this.removableInventories) {
       if (toRemove === inv.name) {
-        console.log("found");
         inventory = inv;
       }
     }
 
-    console.log(inventory);
 
-    this.invs.splice(this.invs.indexOf(toRemove), 1);
+    // current does not work, later issue
+    // temporary work around is the location.reload() line
 
-    console.log(this.invs);
-
+    // this.invs = this.invs.splice(this.invs.indexOf(toRemove));
 
     this.invService.removeInventory(inventory).subscribe((response) => {
       this.activeModal.close();
+      location.reload();
     });
 
   }
