@@ -19,6 +19,8 @@ export class InventoryComponent implements OnInit {
   inventoriesJSON: Inventory[];
   // the inventories that loggedIn has access to
   loggedInInventories: Inventory[] = [];
+  // Viewed inventories
+  viewedInventories: Inventory[] = [];
 
   constructor(private data: InventoryService, public router: Router, private authServ: AuthService, private modal: NgbModal) {
     // This just prevents some undefined ref errors as things load in
@@ -40,6 +42,7 @@ export class InventoryComponent implements OnInit {
         for (const inv of this.inventoriesJSON) {
           if (inv.people.includes(this.loggedIn.userName)) {
             this.loggedInInventories.push(inv);
+            this.viewedInventories.push(inv);
           }
         }
       });
@@ -55,5 +58,21 @@ export class InventoryComponent implements OnInit {
     const openModal = this.modal.open(RemoveInventoryComponent, { size: 'lg' });
 
     openModal.componentInstance.loggedIn = this.loggedInInventories;
+  }
+  
+  onSearch(search_term: string): void{
+    this.viewedInventories = [];
+    if(search_term == ""){
+      for(const inv of this.loggedInInventories){
+        this.viewedInventories.push(inv);
+      }
+    }else{
+      for(const inv of this.loggedInInventories){
+        // If the inventory contains a substring of the search then display it
+        if(inv.name.toLowerCase().includes(search_term.toLowerCase())){
+          this.viewedInventories.push(inv);
+        }
+      }
+    }
   }
 }
