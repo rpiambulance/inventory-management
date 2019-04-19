@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Inventory } from '../inventory';
 import { User } from '../user';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { InventoryService } from '../inventory.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { RemoveInventoryComponent } from '../remove-inventory/remove-inventory.component';
 
 @Component({
   selector: 'app-inventory',
@@ -18,7 +20,7 @@ export class InventoryComponent implements OnInit {
   // the inventories that loggedIn has access to
   loggedInInventories: Inventory[] = [];
 
-  constructor(private data: InventoryService, public router: Router, private authServ: AuthService) {
+  constructor(private data: InventoryService, public router: Router, private authServ: AuthService, private modal: NgbModal) {
     // This just prevents some undefined ref errors as things load in
     this.loggedIn = new User('', '', '', '', '');
   }
@@ -46,5 +48,12 @@ export class InventoryComponent implements OnInit {
 
   newInvButtonClick(): void {
     this.router.navigate(['newInvForm']);
+  }
+
+  removeInventory(): void {
+
+    const openModal = this.modal.open(RemoveInventoryComponent, { size: 'lg' });
+
+    // openModal.componentInstance.inv = this.thisInv;
   }
 }
