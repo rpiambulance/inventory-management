@@ -54,6 +54,6 @@ export class InventoryComponent implements OnInit {
 
     const openModal = this.modal.open(RemoveInventoryComponent, { size: 'lg' });
 
-    // openModal.componentInstance.inv = this.thisInv;
+    openModal.componentInstance.inv = this.loggedInInventories;
   }
 }

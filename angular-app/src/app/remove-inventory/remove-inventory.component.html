@@ -7,19 +7,24 @@
 <div class="modal-body">
   <div class="container">
     <h2>Remove Inventory</h2>
-    
-    <!-- <div *ngIf="users?.length > 0;else noNew">
-        <form [formGroup]="addPersonForm" (ngSubmit)="onSubmit()">
-            <select formControlName="user">
+
+    <div *ngIf="removableInventories?.length > 0;else noNew">
+        <form [formGroup]="removeInventoryForm" (ngSubmit)="onSubmit()">
+          <select formControlName="inv">
+            <option *ngFor='let inv of removableInventories' [value]="inv" selected="selected">
+              {{ inv.name }}
+            </option>
+          </select>
+            <!-- <select formControlName="user">
                 <option *ngFor='let user of users' [value]="user" selected="selected">
                   {{user}}
                 </option>
-            </select>
+            </select> -->
           <button type="submit">Submit</button>
         </form>
-    </div> -->
+    </div>
     <ng-template #noNew>
-      <h2>There is no one to add :(</h2>
+      <h2>There is no inventories remove :(</h2>
     </ng-template>
     
   </div>       
