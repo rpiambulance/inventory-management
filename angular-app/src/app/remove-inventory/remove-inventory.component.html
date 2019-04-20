@@ -10,8 +10,8 @@
     <div *ngIf="removableInventories?.length > 0;else noNew">
         <form [formGroup]="removeInventoryForm" (ngSubmit)="onSubmit()">
           <select formControlName="inv">
-            <option *ngFor='let inv of invs' [value]="inv" selected="selected">
-              {{ inv }}
+            <option *ngFor='let inv of removableInventories' [value]="inv.name" selected="selected">
+              {{ inv.name }}
             </option>
           </select>
         <button type="submit">Submit</button>

@@ -15,8 +15,7 @@ export class RemoveInventoryComponent  {
 
   removeInventoryForm: FormGroup;
   removableInventories: Inventory[] = [];
-  invs: any;
-  // inv: Inventory[];
+  displayedInventories: Inventory[];
   loggedIn: User;
   constructor(private fb: FormBuilder, public activeModal: NgbActiveModal,
               private authService: AuthService, private invService: InventoryService) {
@@ -27,18 +26,14 @@ export class RemoveInventoryComponent  {
     // getting the currently logged in user
     this.authService.getUser(localStorage.getItem('auth_token')).subscribe(response => {
       this.loggedIn = response.user;
-      console.log(this.loggedIn);
-    });
-
-    // getting all the inventories the user is the owner of
-    this.invService.getInventories().subscribe((response) => {
-      for (const inv of response) {
-        console.log(inv);
-        if (inv.owner === this.loggedIn.userName) {
-          this.removableInventories.push(inv);
+      // getting all the inventories the user is the owner of (must be nested or getUser might not return in time)
+      this.invService.getInventories().subscribe((response) => {
+        for (const inv of response) {
+          if (inv.owner === this.loggedIn.userName) {
+            this.removableInventories.push(inv);
+          }
         }
-      }
-      this.invs = this.removableInventories.map(a => a.name);
+      });
     });
   }
 
@@ -61,8 +56,8 @@ export class RemoveInventoryComponent  {
     // this.invs = this.invs.splice(this.invs.indexOf(toRemove));
 
     this.invService.removeInventory(inventory).subscribe((response) => {
-      this.activeModal.close();
-      location.reload();
+      this.displayedInventories = this.displayedInventories.splice(this.displayedInventories.indexOf(inventory));
+      this.activeModal.close(this.displayedInventories);
     });
 
   }

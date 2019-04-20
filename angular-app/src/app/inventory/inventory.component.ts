@@ -54,10 +54,17 @@ export class InventoryComponent implements OnInit {
   }
 
   removeInventory(): void {
-
     const openModal = this.modal.open(RemoveInventoryComponent, { size: 'lg' });
-
-    openModal.componentInstance.loggedIn = this.loggedInInventories;
+    console.log(this.loggedInInventories);
+    openModal.componentInstance.displayedInventories = this.loggedInInventories;
+    openModal.result.then((result) => {
+      console.log(result);
+    });
+    console.log(this.loggedInInventories);
+    this.viewedInventories = [];
+    for(const inv of this.loggedInInventories){
+      this.viewedInventories.push(inv);
+    }
   }
   
   onSearch(search_term: string): void{
