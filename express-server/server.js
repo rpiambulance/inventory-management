@@ -122,8 +122,19 @@ inventoryRouter.post('/update', (req, res) => {
     Inventory.findOne({_id: req.body.id}, (err, inventory) => {
         if(err) return console.error(err);
         // We have to go through and update the quantities on the database object
-        for(let i = 0; i < inventory.items.length; i++){
-            inventory.items[i].quantity = req.body.items[i].quantity
+        for (let i = 0; i < inventory.items.length; i++){
+            if (req.body.items[i].quantity != -1) {
+                inventory.items[i].quantity = req.body.items[i].quantity
+            }
+            else {
+                console.log("testing");
+                console.log(req.body.items[i])
+                Inventory.update({ _id: req.body.id }, {
+                    $pull: { items: { name: req.body.items[i].name } }
+                },
+                    (err, inv) => { })
+                
+            }
         }
         // Updates the inventory
         inventory.save((err, newInv) => {
@@ -135,7 +146,7 @@ inventoryRouter.post('/update', (req, res) => {
 });
 // TODO: give it a better, more unique endpoint
 // /inventory/:id responsible for adding a user to have access
-inventoryRouter.post('/:id/add', (req,res)=>{
+inventoryRouter.post('/:id/add/user', (req,res)=>{
     var invId = req.params.id;
     Inventory.findOne({ _id: invId }, (err, inv) => {
         if (err) return console.log(err);
@@ -150,8 +161,8 @@ inventoryRouter.post('/:id/add', (req,res)=>{
 });
 
 // TODO: give it a better, more unique endpoint
-// /inventory/:id responsible for adding a user to have access
-inventoryRouter.post('/:id/remove/items', (req,res)=>{
+// /inventory/:id/remove/user responsible for removing  a user to have access
+inventoryRouter.post('/:id/remove/user', (req,res)=>{
     var invId = req.params.id;
     Inventory.findOneAndUpdate({ _id: invId }, { $pull: { people: req.body.user } }, (err, inv) => {
         inv.save((err) => {
@@ -162,6 +173,8 @@ inventoryRouter.post('/:id/remove/items', (req,res)=>{
     })
 });
 
+
+// /inventory/:id/remove responsible for removing the inventory from the system 
 inventoryRouter.post('/:id/remove', (req, res) => {
     var invId = req.params.id;
     // console.log(invId);
