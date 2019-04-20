@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Inventory } from '../inventory';
 import { User } from '../user';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { InventoryService } from '../inventory.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { RemoveInventoryComponent } from '../remove-inventory/remove-inventory.component';
 
 @Component({
   selector: 'app-inventory',
@@ -20,7 +22,7 @@ export class InventoryComponent implements OnInit {
   // Viewed inventories
   viewedInventories: Inventory[] = [];
 
-  constructor(private data: InventoryService, public router: Router, private authServ: AuthService) {
+  constructor(private data: InventoryService, public router: Router, private authServ: AuthService, private modal: NgbModal) {
     // This just prevents some undefined ref errors as things load in
     this.loggedIn = new User('', '', '', '', '');
   }
@@ -51,6 +53,20 @@ export class InventoryComponent implements OnInit {
     this.router.navigate(['newInvForm']);
   }
 
+  removeInventory(): void {
+    const openModal = this.modal.open(RemoveInventoryComponent, { size: 'lg' });
+    console.log(this.loggedInInventories);
+    openModal.componentInstance.displayedInventories = this.loggedInInventories;
+    openModal.result.then((result) => {
+      console.log(result);
+    });
+    console.log(this.loggedInInventories);
+    this.viewedInventories = [];
+    for(const inv of this.loggedInInventories){
+      this.viewedInventories.push(inv);
+    }
+  }
+  
   onSearch(search_term: string): void{
     this.viewedInventories = [];
     if(search_term == ""){
