@@ -39,7 +39,7 @@ export class UpdatequantityComponent implements OnInit {
       this.inv.items[i].quantity = this.quantities.controls[i].value;
     }
     this.invService.updateInventory(this.inv).subscribe((response) => {
-      this.inv = response.inv;
+      this.inv = new Inventory(response.inv);
       this.activeModal.close(this.inv);
     });
   }
