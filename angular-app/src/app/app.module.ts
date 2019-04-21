@@ -17,6 +17,7 @@ import { AddPersonComponent } from './add-person/add-person.component';
 import { BarcodeComponent } from './barcode/barcode.component';
 import { RemovePersonComponent } from './remove-person/remove-person.component';
 import { TakeinventoryComponent } from './takeinventory/takeinventory.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TakeinventoryComponent } from './takeinventory/takeinventory.component'
     AddPersonComponent,
     BarcodeComponent,
     RemovePersonComponent,
-    TakeinventoryComponent
+    TakeinventoryComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
