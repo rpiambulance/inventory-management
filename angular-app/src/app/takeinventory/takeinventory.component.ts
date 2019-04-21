@@ -85,7 +85,7 @@ export class TakeinventoryComponent {
       }
       this.invService.updateInventory(this.inv).subscribe((res) => {
         this.inv = res.inv;
-        this.activeModal.close();
+        this.activeModal.close(this.inv);
       });
     }
   }

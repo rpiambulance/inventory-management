@@ -122,20 +122,14 @@ inventoryRouter.post('/update', (req, res) => {
     Inventory.findOne({_id: req.body.id}, (err, inventory) => {
         if(err) return console.error(err);
         // We have to go through and update the quantities on the database object
+        items = [];
         for (let i = 0; i < inventory.items.length; i++){
-            if (req.body.items[i].quantity != -1) {
-                inventory.items[i].quantity = req.body.items[i].quantity
-            }
-            else {
-                console.log("testing");
-                console.log(req.body.items[i])
-                Inventory.update({ _id: req.body.id }, {
-                    $pull: { items: { name: req.body.items[i].name } }
-                },
-                    (err, inv) => { })
-                
+            if (req.body.items[i].quantity >= 0) {
+                inventory.items[i].quantity = req.body.items[i].quantity;
+                items.push(inventory.items[i]);
             }
         }
+        inventory.items = items;
         // Updates the inventory
         inventory.save((err, newInv) => {
             if (err) {res.send(false); return console.error(err)};

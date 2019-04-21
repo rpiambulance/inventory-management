@@ -78,6 +78,9 @@ export class SingleInventoryComponent implements OnInit {
   openTakeInventory(): void {
     const openModal = this.modal.open(TakeinventoryComponent, {size: 'lg'});
     openModal.componentInstance.inv = this.thisInv;
+    openModal.result.then((result) => {
+      this.thisInv = result;
+    });
   }
 
   // Opens up the add person form modal
