@@ -6,8 +6,8 @@
   color:blue;
 }*/
 body{
-  background-color: #191970;
-  padding: 5rem;
+  padding-left: 10em;
+  /* padding: 5rem; */
 }
 
 #section-heading-lower{
@@ -31,7 +31,8 @@ body{
   margin: 5rem;
   padding-top: 2rem;
   margin-bottom: 0;/*remove the weird space between body and footer*/
-  background-color: #ffdfe5 ;/*#bde0ff,alice blue*/
+  background-color: #00c7ff ;/*#bde0ff,alice blue*/
+  border: 2px solid black;
 
 }
 

@@ -9,7 +9,7 @@ bodyrouter-outlet{
   font-weight: 100;
   line-height: 4rem;
   color: white;
-  background-color: #191970;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #mainNav .navbar-nav > li.nav-item > a {
