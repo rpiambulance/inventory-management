@@ -1,2 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "bootstrap-4.2.1-dist/css/bootstrap.css";
+
+/*@import url('https://fonts.googleapis.com/css?family=Roboto+Mono'); */
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+
+body{
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #00b2ff;/**/
+}
+
+footer {
+  font-family: 'Ubuntu', sans-serif;
+}

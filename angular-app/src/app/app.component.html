@@ -1,28 +1,62 @@
-<h1>Inventory Management System</h1>
-<nav class="navbar navbar-expand-lg bg-light"> 
-	<div class="collapse navbar-collapse" id="navbarNav">
-		<ul class="navbar-nav">
-			<li class="nav-item">
-				<button type="button" class = "btn btn-dark mr-2" placement="left">
-					<a class="nav-link text-light" routerLink="/about" routerLinkActive="active">About</a>
-	           </button>
-			</li>
-			<li class="nav-item" [hidden]="loggedIn">
-				<button type="button" class = "btn btn-success mr-2" placement="middle">
-					<a class="nav-link text-light" routerLink="/login" routerLinkActive="active">Login</a>
-				</button>
-			</li>
-			<li class="nav-item" [hidden]="!loggedIn">
-				<button type="button" class = "btn btn-info mr-2" placement="right">
-					<a class="nav-link text-light" routerLink="/inventory" routerLinkActive="active"> Inventory</a>
-				</button>
-			</li>
-			<li class="nav-item" [hidden]="!loggedIn">
-				<button type="button" placement="right" class="btn btn-danger" (click)="logoutUser()">
-					Logout
-				</button>
-			</li>
-		</ul>
-	</div>
-</nav>
-<router-outlet (activate)="changeOfRoutes()"></router-outlet>
+<!---https://medium.com/@ct7/the-simple-way-to-make-a-mobile-angular-2-bootstrap-navbar-without-jquery-d6b3f67b037b
+
+https://angularfirebase.com/lessons/bootstrap-4-collapsable-navbar-work-with-angular/
+
+  --->
+<body>
+  <!---This is the root page--->
+   <h1 class="site-heading text-center d-none d-lg-block">Inventory Management System</h1><br/>
+   <!--#e3f2fd,#f9f1f1 is the old navbar color-->
+   <nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color:#ffffff ;" id="mainNav">
+    <!---nav bar logo--->
+<!--     <nav class="navbar navbar-light bg-light">
+      <img src="../assets/navlogo2.jpg" width="30" height="30" alt="">
+    </nav> -->
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+<!--           <li class="nav-item">
+            <button type="button" class = "btn btn-dark mr-2" placement="left">
+              <a class="nav-link text-light" routerLink="/about" routerLinkActive="active">About</a>
+            </button>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/landing-page" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about-us" routerLinkActive="active">About Us</a>
+          </li>
+          <li class="nav-item" [hidden]="loggedIn">
+            <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+          </li>
+          <li class="nav-item" [hidden]="loggedIn">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+          </li>
+          <li class="nav-item" [hidden]="!loggedIn">
+            <a class="nav-link" routerLink="/inventory" routerLinkActive="active"> Inventory</a>
+          </li>
+          <li class="nav-item" [hidden]="!loggedIn">
+            <a class="nav-link" placement="right" (click)="logoutUser()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <router-outlet (activate)="changeOfRoutes()"></router-outlet>
+</body>
+<!---Footer--->
+<footer >
+  <div class="container ">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p class="copyright text-muted ">Copyright &copy; ITWS-4500-group1-section2 Project 2019</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+

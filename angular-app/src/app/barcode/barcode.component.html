@@ -1,18 +1,27 @@
 <div [hidden]="barcodeSuccess" class="alert alert-danger">
-  {{ message }}
+    {{ message }}
 </div>
-<h1>Barcodes for {{invName}}</h1>
-<div>
-  <select (change)="onSelect($event.target.value)">
-    <option *ngFor="let barcode of barCodes" value="{{barcode.val}}">
-      {{barcode.name}}
-    </option>
-  </select>
-</div>
-<br/>
-<div class="barcodes">
-  <div id="barcode" *ngFor="let item of items">
-      <img alt="Barcode for {{item.name}}" src="http://bwipjs-api.metafloor.com/?bcid={{currentBarcodeFormat}}&text={{item.barcode}}&includetext"/>
-      <p>{{item.name}}</p>
-  </div>
+
+<div class = "container rounded">
+    <div class="row">
+        <h1>Barcodes for {{invName}}</h1>
+        <br>
+        <select class = "custom-select" (change)="onSelect($event.target.value)">
+            <option *ngFor="let barcode of barCodes" value="{{barcode.val}}">
+                {{barcode.name}}
+            </option>
+        </select>
+    </div>
+
+    <br>
+
+    <div class= "barcodes">
+        <div class="row">
+            <div class= "col-6" id="barcode" *ngFor="let item of items">
+                <img alt="Barcode for {{item.name}}" src="http://bwipjs-api.metafloor.com/?bcid={{currentBarcodeFormat}}&text={{item.barcode}}&includetext"/>
+                    
+                <p>{{item.name}}</p>
+            </div>
+        </div>
+    </div>
 </div>

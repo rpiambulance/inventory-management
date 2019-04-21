@@ -1,0 +1,61 @@
+/*body {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  font-size: 1.5rem;
+  color:blue;
+}*/
+body{
+  padding-left: 10em;
+  /* padding: 5rem; */
+}
+
+#section-heading-lower{
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  font-size: 1.5rem;
+  color:blue;
+}
+
+#card-text{
+
+  font-size: 10rem;
+  color:blue;
+
+}
+.container{
+  width: 100%;
+  padding: 1rem;
+  position: center;
+  margin: 5rem;
+  padding-top: 2rem;
+  margin-bottom: 0;/*remove the weird space between body and footer*/
+  background-color: #00c7ff ;/*#bde0ff,alice blue*/
+  border: 2px solid black;
+
+}
+
+#mainText{
+  text-align: center;
+}
+
+#text{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+}
+
+#img1{/*the image of inventory*/  
+  float: right;
+  /*padding-left: 3rem;*/
+  background: transparent;
+}
+
+#img2{/*the image of scanning bar code*/  
+  width: 200%;
+  float: right;
+
+}
+
+

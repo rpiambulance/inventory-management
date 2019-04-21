@@ -1,5 +1,89 @@
-a{
+bodyrouter-outlet{
+  background-color: #191970;
+}
+.site-heading { 
+  margin-top: 5rem;
+  margin-bottom: 0rem;
+  line-height: 1;
+  font-size: 5rem;
+  font-weight: 100;
+  line-height: 4rem;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 
+#mainNav .navbar-nav > li.nav-item > a {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.navbar a{
   display: inline;
+  color: #212529;
+  transition: all 0.2s;
 
+}
+
+.navbar a:hover {/*change this style*/
+  background-color: #a4d4ff;
+  color: #0085A1;
+}
+
+li.nav-item{
+  padding-left: 5rem; 
+}
+body{
+  font-size: 20px;
+  color: #212529;
+  
+  margin-bottom: 0;
+}
+
+footer {
+  padding: 50px;
+  text-decoration: underline;
+  color: #ceffe2;
+  /*background-color: #191970;*/
+}
+
+footer .list-inline {
+  margin: 0;
+  padding: 0;
+  
+}
+
+footer .copyright {
+  font-size: 14px;
+  margin-bottom: 0;
+  text-align: center;
+
+}
+
+@media screen and (max-width: 600px) {
+  .navbar a:not(:first-child) {display: none;}
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar.responsive {position: relative;}
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
+p{
+  background-color: #ceffe2;
 }

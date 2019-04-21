@@ -1,165 +1,56 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-  <a class="navbar-brand" href="#">Angular</a>
-  <button class="navbar-toggler hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown" ngbDropdown>
-        <a class="nav-link dropdown-toggle" id="id01" href="#" ngbDropdownToggle>Files</a>
-        <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
-          <a class="dropdown-item" href="#">HTML</a>
-          <a class="dropdown-item" href="#">TS</a>
-          <a class="dropdown-item" href="#">JS</a>
+  <body>
+  <!-- Main Content -->
+  <div class="container rounded ">
+    <div class="row justify-content-between vertical-center">
+      <div class="col-8 vertical-center" >
+        <hr>
+        <div class="card-title w-100 text-center " >
+          <h2 class="section-heading ">
+            <span class="section-heading-lower text-center ">Help you manage your inventory</span>
+        </h2>
         </div>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<div class="container">
-    <ngb-alert type="success" [dismissible]="false">
-      ng-Bootstrap is working!
-    </ngb-alert>
-
-    <h1>
-      <i class="fa fa-bath" aria-hidden="true"></i>
-      Font Awesome is also working!
-    </h1>
-</div>
-
-
-<div class="container">
-  <p>
-    A progress bar:
-    <ngb-progressbar showValue="true" type="success" [value]="65">
-    </ngb-progressbar>
-  </p>
-</div>
-
-<div class="container">
-  <ngb-tabset>
-    <ngb-tab title="About">
-        <ng-template ngbTabContent>
-          <p class="mt-4">Content for tab 1.
-            <button type="button"
-                    class="btn btn-secondary"
-                    placement="bottom"
-                    ngbPopover="A popover in tab 1"
-                    popoverTitle="This is the About">
-              Click me
-            </button>
-          </p>
-        </ng-template>
-      </ngb-tab>
-      <ngb-tab title="Register">
-        <ng-template ngbTabContent>
-          <p>Content for tab 2</p>
-        </ng-template>
-      </ngb-tab>
-      <ngb-tab title="Inventory">
-        <ng-template ngbTabContent>
-          <p>Content for tab 3</p>
-        </ng-template>
-      </ngb-tab>
-    </ngb-tabset>
-</div>
-
-
-<!--
-  <!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Inventory Management System</title>
-
-
-</head>
-
-<body>
-
-  <h1 class="site-heading text-center text-white d-none d-lg-block">
-    <span class="site-heading-upper text-primary mb-3">Inventory</span>
-    <span class="site-heading-lower">Inventory Management System</span>
-  </h1>
-
-  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link" routerLink="/landing-page" routerLinkActive="active">Home</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>			
-          </li>
-          <li>
-          	<a class="nav-link" routerLink="/inventory" routerLinkActive="active"> Inventory</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <section class="page-section clearfix">
-    <div class="container">
-      <div class="intro">
-        <div class="intro-text mx-auto text-center bg-faded p-5 rounded">
-          <h2 class="section-heading mb-4">
-            <span class="section-heading-upper">Help you</span>
-            <span class="section-heading-lower">Manage your inventory</span>
-          </h2>
-          <p class="mb-3">Register to use our website
-          </p>
+        <div class="card-text w-100 text-center" >
+          <span>&#9733; Register to use our website &#9733;</span>
+        </div>
+        <div class="card-text w-100 text-center" >
           <div class="intro-button mx-auto">
-            <a class="btn btn-primary btn-xl" href="#">Register Today!</a>
+          <!---Register button--->
+            <a class="btn btn-primary btn-xl" routerLink="/register" routerLinkActive="active">Register Today!</a> 
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="page-section cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <div class="cta-inner text-center rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">What </span>
-              <span class="section-heading-lower">is this?</span>
-            </h2>
-            <p class="mb-0">Our product is an inventory management and inventory taking system to allow for companies, clubs, and individual users to manage complex inventory systems. The inventory management has a kind of tree structure to it, as depicted above, which allows you to have an upper level node, the company, with infinitely nested subcategories to further classify “sub-inventories” this allows for different levels of specificity when generating points and grants this inventory management system a lot of power. </p>
-          </div>
-        </div>
+      <!---image--->
+      <div class="col-4 d-flex  align-items-end">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="../assets/image1.jpg" alt="" style="width: 600px;" id="img1">
       </div>
-    </div>
-  </section>
+  </div>
+</div>
 
-  <footer class="footer text-faded text-center py-5">
-    <div class="container">
-      <p class="m-0 small">Copyright &copy; ITWS-4500 project 2019</p>
-    </div>
-  </footer>
+<div class="container rounded">
+    <div class="row justify-content-between vertical-center">
+      <div class="col-8 vertical-center" >
+        <hr>
+        <div class="card-title w-100 text-center" >
+          <h2 class="section-heading ">
+            <span class=" card-title w-100 text-center">&#9733;Introduction&#9733;</span>
+        </h2>
+        </div>
+        <div class="card-text w-100 text-center" >
+          <p >Our product is an inventory management and inventory taking system to allow for companies, clubs, and individual users to manage complex inventory systems.</p>
+          <p>To learn more, visit the <b>About Us</b> page </p>
+        </div>        
+      </div>
+      <!---image--->
+      <div class="col-4 d-flex  align-items-end">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="../assets/image2.jpg" alt="" style="width: 600px;" id="img2">
+      </div>
+  </div>
+</div>
 
+
+<!--   <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="../assets/image3.jpg" alt="" style="width: 600px;" id="img3"> -->
+
+    
+<router-outlet></router-outlet>
 </body>
 
-</html>
--->

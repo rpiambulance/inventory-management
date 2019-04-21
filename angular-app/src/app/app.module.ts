@@ -17,6 +17,7 @@ import { AddPersonComponent } from './add-person/add-person.component';
 import { BarcodeComponent } from './barcode/barcode.component';
 import { RemovePersonComponent } from './remove-person/remove-person.component';
 import { TakeinventoryComponent } from './takeinventory/takeinventory.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { RemoveInventoryComponent } from './remove-inventory/remove-inventory.component';
 
 @NgModule({
@@ -33,6 +34,7 @@ import { RemoveInventoryComponent } from './remove-inventory/remove-inventory.co
     BarcodeComponent,
     RemovePersonComponent,
     TakeinventoryComponent,
+    AboutUsComponent,
     RemoveInventoryComponent
   ],
   imports: [
