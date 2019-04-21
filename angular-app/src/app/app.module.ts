@@ -34,7 +34,7 @@ import { RemoveInventoryComponent } from './remove-inventory/remove-inventory.co
     BarcodeComponent,
     RemovePersonComponent,
     TakeinventoryComponent,
-    AboutUsComponent
+    AboutUsComponent,
     RemoveInventoryComponent
   ],
   imports: [

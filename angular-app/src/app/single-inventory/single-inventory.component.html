@@ -1,8 +1,8 @@
-<div class = "container">
+<div class = "container rounded">
 
 	<h1>{{ thisInv.name }}</h1>
 
-	<table class=table>
+	<table class="table">
 		<thead>
 			<tr>
 				<th scope="col">Item</th>
@@ -17,16 +17,11 @@
 		</tbody>
 	</table>
 
-	<button type="button" class="btn btn-primary float-right" (click)="openAddItemForm()">Add Item</button>
-	<button type="button" class="btn btn-primary mr-2 float-right" (click)="openTakeInventory()">Take Inventory</button>
-	<button type="button" class="btn btn-primary mr-2 float-right" (click)="addPerson()">Add Person</button>
-  	<button *ngIf="loggedIn.userName == thisInv?.owner" type="button" class="btn btn-danger mr-2 float-right" (click)="removePerson()">Remove Person</button>
-	<button type="button" class="btn btn-primary mr-2 float-right" routerLink="/barcode/{{ id }}">View Barcodes</button>
-
-
-<button type="button" class="btn btn-primary" (click)="openAddItemForm()">Add Item</button>
-<button type="button" class="btn btn-primary" (click)="addPerson()">Add Person</button>
-<button type="button" class="btn btn-primary" routerLink="/barcode/{{ id }}">View Barcodes</button>
+	<button type="button" class="btn btn-primary mr-2" (click)="openAddItemForm()">Add Item</button>
+	<button type="button" class="btn btn-primary mr-2" (click)="openTakeInventory()">Take Inventory</button>
+	<button type="button" class="btn btn-primary mr-2" (click)="addPerson()">Add Person</button>
+  	<button *ngIf="loggedIn.userName == thisInv?.owner" type="button" class="btn btn-danger mr-2" (click)="removePerson()">Remove Person</button>
+	<button type="button" class="btn btn-primary mr-2" routerLink="/barcode/{{ id }}">View Barcodes</button>
 
 </div>
 
