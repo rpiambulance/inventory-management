@@ -59,7 +59,7 @@ footer .copyright {
   text-align: center;
 
 }
-
+/*
 @media screen and (max-width: 600px) {
   .navbar a:not(:first-child) {display: none;}
   .navbar a.icon {
@@ -80,9 +80,7 @@ footer .copyright {
     display: block;
     text-align: left;
   }
-}
-
-
+}*/
 
 p{
   background-color: #ceffe2;

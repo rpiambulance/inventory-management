@@ -2,46 +2,40 @@
 
 https://angularfirebase.com/lessons/bootstrap-4-collapsable-navbar-work-with-angular/
 
-  --->
-  <!---This is the root page--->
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+--->
+<!---This is the root page--->
+
 <body>
-  <!-- <div class="jumbotron" style="margin-bottom: 0px;"> -->
-
-   <h1 class="site-heading text-center d-none d-lg-block">Inventory Management System</h1><br/>
-  <!-- </div> -->
-   <!--#e3f2fd,#f9f1f1 is the old navbar color-->
-<nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color:#ffffff ;" id="mainNav">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarResponsive">
+  <h1 class="site-heading text-center d-none d-lg-block">Inventory Management System</h1><br/>  
+  <!--#e3f2fd,#f9f1f1 is the old navbar color-->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color:#ffffff ;" id="mainNav">
+<!--     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+     -->
     <ul class="navbar-nav mx-auto">
       <li class="nav-item">
-            <a class="nav-link" routerLink="/landing-page" routerLinkActive="active">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/about-us" routerLinkActive="active">About Us</a>
-          </li>
-          <li class="nav-item" [hidden]="loggedIn">
-            <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
-          </li>
-          <li class="nav-item" [hidden]="loggedIn">
-            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-          </li>
-          <li class="nav-item" [hidden]="!loggedIn">
-            <a class="nav-link" routerLink="/inventory" routerLinkActive="active"> Inventory</a>
-          </li>
-          <li class="nav-item" [hidden]="!loggedIn">
-            <a class="nav-link" placement="right" (click)="logoutUser()">Logout</a>
-          </li>
-    </ul>
-
-  </div>
-</nav>
+        <a class="nav-link" routerLink="/landing-page" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about-us" routerLinkActive="active">About Us</a>
+      </li>
+      <li class="nav-item" [hidden]="loggedIn">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+      </li>
+      <li class="nav-item" [hidden]="loggedIn">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item" [hidden]="!loggedIn">
+        <a class="nav-link" routerLink="/inventory" routerLinkActive="active"> Inventory</a>
+      </li>
+      <li class="nav-item" [hidden]="!loggedIn">
+        <a class="nav-link" placement="right" (click)="logoutUser()">Logout</a>
+      </li>
+    </ul>  
+    <!---</div>--->                  
+  </nav>
   <router-outlet (activate)="changeOfRoutes()"></router-outlet>
 </body>
 <!---Footer--->
