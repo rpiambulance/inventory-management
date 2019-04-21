@@ -151,7 +151,7 @@ inventoryRouter.post('/:id/add', (req,res)=>{
 
 // TODO: give it a better, more unique endpoint
 // /inventory/:id responsible for adding a user to have access
-inventoryRouter.post('/:id/remove', (req,res)=>{
+inventoryRouter.post('/:id/remove/items', (req,res)=>{
     var invId = req.params.id;
     Inventory.findOneAndUpdate({ _id: invId }, { $pull: { people: req.body.user } }, (err, inv) => {
         inv.save((err) => {
@@ -161,6 +161,21 @@ inventoryRouter.post('/:id/remove', (req,res)=>{
         })
     })
 });
+
+inventoryRouter.post('/:id/remove', (req, res) => {
+    var invId = req.params.id;
+    // console.log(invId);
+    Inventory.deleteOne({ _id: invId }, (err, inv) => {
+        // inv.save((err) => {
+        //     if (err) {
+        //         res.send({ success: false, error: err }); return console.error(err)
+        //     };
+        //     console.log("successfully removed the inventory!");
+        //     res.send({ success: true, error: "", id: req.params.id });
+        // })
+        res.send({ success: true });
+    })
+})
 
 
 app.use('/user', userRouter);

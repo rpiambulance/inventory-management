@@ -18,6 +18,7 @@ import { BarcodeComponent } from './barcode/barcode.component';
 import { RemovePersonComponent } from './remove-person/remove-person.component';
 import { TakeinventoryComponent } from './takeinventory/takeinventory.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { RemoveInventoryComponent } from './remove-inventory/remove-inventory.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     RemovePersonComponent,
     TakeinventoryComponent,
     AboutUsComponent
+    RemoveInventoryComponent
   ],
   imports: [
     BrowserModule,
