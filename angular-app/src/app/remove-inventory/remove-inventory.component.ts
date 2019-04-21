@@ -49,14 +49,17 @@ export class RemoveInventoryComponent  {
       }
     }
 
-
-    // current does not work, later issue
-    // temporary work around is the location.reload() line
-
-    // this.invs = this.invs.splice(this.invs.indexOf(toRemove));
-
     this.invService.removeInventory(inventory).subscribe((response) => {
-      this.displayedInventories = this.displayedInventories.splice(this.displayedInventories.indexOf(inventory));
+      let index = -1;
+      // Had to make own indexOf based on name property because it kept returning -1
+      for(let i = 0; i < this.displayedInventories.length; i++){
+        if(this.displayedInventories[i].name == inventory.name){
+          index = i;
+          break;
+        }
+      }
+      this.displayedInventories.splice(index, 1);
+      // We then pass the inventory back to be removed
       this.activeModal.close(this.displayedInventories);
     });
 
