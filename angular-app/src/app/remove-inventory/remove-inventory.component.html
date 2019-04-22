@@ -6,7 +6,6 @@
 </div>
 <div class="modal-body">
   <div class="container">
-    <h2>Remove Inventory</h2>
     <div *ngIf="removableInventories?.length > 0;else noNew">
         <form [formGroup]="removeInventoryForm" (ngSubmit)="onSubmit()">
           <select class="custom-select custom-select-lg mb-3 rounded" formControlName="inv">
