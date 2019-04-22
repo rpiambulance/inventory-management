@@ -1,6 +1,6 @@
 <div class="modal-header">
-  <h4 class="modal-title">Take Inventory via Barcode <a (click)="switchMode()">(By name instead?)</a></h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+<h4 class="modal-title">Take Inventory via Barcode <a (click)="switchMode()">(By name instead?)</a></h4>
+  <button type="button" class="close  btn btn-danger" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -13,12 +13,20 @@
           <div [hidden]="item.controls.barcode.valid || item.controls.barcode.pristine" class="alert alert-danger">
             Invalid Barcode!
           </div>
-          <input formControlName="barcode" placeholder="Item's barcode" required>
-          <input formControlName="quantity" type="number" placeholder="Current Quantity of Item" (keydown.enter)="onEnter()"required>
-          <button *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
+          <div class="form-row">
+            <div class="col col-md-5">
+              <input class="form-control form-control-lg rounded" type="text" formControlName="barcode" placeholder="Item's barcode" required >
+            </div>
+            <div class="col col-md-5">
+              <input class="form-control form-control-lg rounded"  formControlName="quantity" type="number" placeholder="Current Quantity of Item" (keydown.enter)="onEnter()"required>              
+            </div>
+            <div class="col col-md-2" >
+              <button id="bt" *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
+            </div>          
+          </div>
         </div>
       </div>
-      <button type="submit" [disabled]="!takeInventoryForm.valid">Submit</button>
+      <button class="btn btn-success" type="submit" [disabled]="!takeInventoryForm.valid"data-toggle="tooltip" data-placement="top" title="Click submit when you finished taking inventory">Submit</button>
     </form>
 </div>        
 </div>

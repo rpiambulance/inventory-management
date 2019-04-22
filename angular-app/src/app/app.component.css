@@ -26,6 +26,7 @@ bodyrouter-outlet{
 }
 
 .navbar a:hover {
+
   background-color: #a4d4ff;
   color: #0085A1;
 }
@@ -59,7 +60,7 @@ footer .copyright {
   text-align: center;
 
 }
-
 p{
   background-color: #ceffe2;
 }
+

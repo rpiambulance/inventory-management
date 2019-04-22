@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title">Add Person to Inventory</h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <button type="button" class="close btn btn-danger" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -9,16 +9,16 @@
     <h2>Add Person</h2>
     <div *ngIf="users?.length > 0;else noNew">
         <form [formGroup]="addPersonForm" (ngSubmit)="onSubmit()">
-            <select formControlName="user">
+            <select class="custom-select custom-select-lg mb-3 rounded" formControlName="user">
                 <option *ngFor='let user of users' [value]="user" selected="selected">
                   {{user}}
                 </option>
             </select>
-          <button type="submit">Submit</button>
+          <button class="btn btn-success mx-auto" type="submit"data-toggle="tooltip" data-placement="top" title="Click when you selected the person you want to add">Submit</button>
         </form>
     </div>
     <ng-template #noNew>
-      <h2>There is no one to add :(</h2>
+      <h2>Sorry.There is no one to add :(</h2>
     </ng-template>
     
   </div>       
