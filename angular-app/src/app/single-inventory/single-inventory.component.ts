@@ -9,6 +9,7 @@ import { RemovePersonComponent } from '../remove-person/remove-person.component'
 import { TakeinventoryComponent } from '../takeinventory/takeinventory.component';
 import { User } from '../user';
 import { AuthService } from '../auth.service';
+import { UpdatequantityComponent } from '../updatequantity/updatequantity.component';
 
 @Component({
   selector: 'app-single-inventory',
@@ -71,13 +72,31 @@ export class SingleInventoryComponent implements OnInit {
 
   removePerson(): void {
     const openModal = this.modal.open(RemovePersonComponent, { size: 'lg' });
-
     openModal.componentInstance.inv = this.thisInv;
   }
-  
+
+  openUpdateQuantity(): void {
+    const openModal = this.modal.open(UpdatequantityComponent, { size: 'lg' });
+    openModal.componentInstance.inv = this.thisInv;
+    openModal.result.then((result) => {
+      if (result === 'switch') {
+        this.openTakeInventory();
+      } else {
+        this.thisInv = result;
+      }
+    }).catch((e) => console.log(e));
+  }
+
   openTakeInventory(): void {
     const openModal = this.modal.open(TakeinventoryComponent, {size: 'lg'});
     openModal.componentInstance.inv = this.thisInv;
+    openModal.result.then((result) => {
+      if (result === 'switch') {
+        this.openUpdateQuantity();
+      } else {
+        this.thisInv = result;
+      }
+    }).catch((e) => console.log(e));
   }
 
   // Opens up the add person form modal
