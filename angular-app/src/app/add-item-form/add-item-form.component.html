@@ -12,13 +12,13 @@
         <div id="box" formArrayName="items" *ngFor="let item of addItemForm.get('items').controls; let i = index;">
           <div [formGroupName]="i">
             <div class="form-row">
-              <div class="col">
+              <div class="col col-md-5">
                 <input class="form-control form-control-lg rounded" formControlName="name" placeholder="Item name" required>
               </div>
-              <div class="col">
+              <div class="col col-md-5">
                 <input class="form-control form-control-lg rounded"  formControlName="quantity" type="number" placeholder="Current Quantity of Item" required>
               </div>
-              <div class="col">
+              <div class="col col-md-2">
                 <button id="bt" *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
               </div>
              
