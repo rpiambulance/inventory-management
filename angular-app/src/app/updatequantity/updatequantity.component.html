@@ -5,8 +5,8 @@
   </button>
 </div>
 <div class="modal-body">
-<div class="container">
-    <h1>Take Inventory Via Name</h1>
+  <div class="container">
+    <p>Set quantity to a negative number to remove the item from your inventory.</p>
     <form [formGroup]="updateQuantityForm" (ngSubmit)="onSubmit()">
       <div formArrayName="quantities" *ngFor="let quantities of updateQuantityForm.get('quantities').controls; let i = index;">
         <div id="item" class="container">
@@ -22,5 +22,5 @@
       </div>
       <button type="submit" [disabled]="!updateQuantityForm.valid">Submit</button>
     </form>
-</div>        
+  </div>        
 </div>
