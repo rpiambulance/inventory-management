@@ -18,8 +18,12 @@
               <div class="col">
                 <input class="form-control form-control-lg rounded"  formControlName="quantity" type="number" placeholder="Current Quantity of Item" required>
               </div>
-            </div> 
-            <button *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
+              <div class="col">
+                <button id="bt" *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
+              </div>
+             
+            
+            </div>
           </div>
         </div>
         <button class="btn btn-success" type="submit" [disabled]="!addItemForm.valid" data-toggle="tooltip" data-placement="top" title="Click submit when you finished adding items">Submit</button>
