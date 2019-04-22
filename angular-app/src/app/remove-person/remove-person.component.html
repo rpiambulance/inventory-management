@@ -9,12 +9,12 @@
     <h2>Remove Person</h2>
     <div *ngIf="users?.length > 0;else noNew">
         <form [formGroup]="removePersonForm" (ngSubmit)="onSubmit()">
-            <select formControlName="user">
+            <select class="custom-select custom-select-lg mb-3 rounded" formControlName="user">
                 <option *ngFor='let user of users' [value]="user" selected="selected">
                   {{user}}
                 </option>
             </select>
-          <button class="btn btn-success" type="submit" data-toggle="tooltip" data-placement="top" title="Click when you selected the person you want to remove">Submit</button>
+          <button class="btn btn-success mx-auto" type="submit" data-toggle="tooltip" data-placement="top" title="Click when you selected the person you want to remove">Submit</button>
         </form>
     </div>
     <ng-template #noNew>

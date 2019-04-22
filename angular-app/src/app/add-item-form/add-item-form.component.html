@@ -11,8 +11,14 @@
         <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Add one more row of items" (click)="addItem()">Add Item</button>
         <div id="box" formArrayName="items" *ngFor="let item of addItemForm.get('items').controls; let i = index;">
           <div [formGroupName]="i">
-            <input id="box1" formControlName="name" placeholder="Item name" required>
-            <input id="box2" formControlName="quantity" type="number" placeholder="Current Quantity of Item" required>
+            <div class="form-row">
+              <div class="col">
+                <input class="form-control form-control-lg rounded" formControlName="name" placeholder="Item name" required>
+              </div>
+              <div class="col">
+                <input class="form-control form-control-lg rounded"  formControlName="quantity" type="number" placeholder="Current Quantity of Item" required>
+              </div>
+            </div> 
             <button *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
           </div>
         </div>

@@ -9,12 +9,12 @@
     <h2>Remove Inventory</h2>
     <div *ngIf="removableInventories?.length > 0;else noNew">
         <form [formGroup]="removeInventoryForm" (ngSubmit)="onSubmit()">
-          <select formControlName="inv">
+          <select class="custom-select custom-select-lg mb-3 rounded" formControlName="inv">
             <option *ngFor='let inv of removableInventories' [value]="inv.name" selected="selected">
               {{ inv.name }}
             </option>
           </select>
-        <button class="btn btn-success" type="submit" data-toggle="tooltip" data-placement="top" title="Click when you finished selecting the inventory you want to remove">Submit</button>
+        <button class="btn btn-success mx-auto" type="submit" data-toggle="tooltip" data-placement="top" title="Click when you finished selecting the inventory you want to remove">Submit</button>
       </form>
     </div>
     <ng-template #noNew>
