@@ -5,3 +5,10 @@ button{/*spacing between the buttons*/
 	margin-bottom: 1rem;
 	margin-top: 1rem;
 }
+input{
+	margin-bottom: 1rem;
+}
+#bt{
+	margin-bottom: 0rem;
+	margin-top: 0rem;
+}
