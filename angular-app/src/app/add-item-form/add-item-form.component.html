@@ -1,6 +1,6 @@
 <div class="modal-header">
     <h4 class="modal-title">Add Item to Inventory</h4>
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <button type="button" class="close btn btn-danger" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
 </div>
@@ -8,7 +8,7 @@
   <div class="container">
       <h1>Add Item to Inventory</h1>      
       <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
-        <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Add one more row of items" (click)="addItem()">Add Item</button>
+        <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Add one more row of items" (click)="addItem()">Add Item</button>
         <div id="box" formArrayName="items" *ngFor="let item of addItemForm.get('items').controls; let i = index;">
           <div [formGroupName]="i">
             <input id="box1" formControlName="name" placeholder="Item name" required>
@@ -16,7 +16,7 @@
             <button *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
           </div>
         </div>
-        <button class="btn btn-warning" type="submit" [disabled]="!addItemForm.valid" data-toggle="tooltip" data-placement="top" title="Click submit when you finished adding items">Submit</button>
+        <button class="btn btn-success" type="submit" [disabled]="!addItemForm.valid" data-toggle="tooltip" data-placement="top" title="Click submit when you finished adding items">Submit</button>
       </form>
   </div>        
 </div>

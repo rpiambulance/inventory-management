@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title">Take Inventory via Barcode</h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <button type="button" class="close btn btn-danger" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -18,7 +18,7 @@
           <button *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
         </div>
       </div>
-      <button class="btn btn-warning" type="submit" [disabled]="!takeInventoryForm.valid"data-toggle="tooltip" data-placement="top" title="Click submit when you finished taking inventory">Submit</button>
+      <button class="btn btn-success" type="submit" [disabled]="!takeInventoryForm.valid"data-toggle="tooltip" data-placement="top" title="Click submit when you finished taking inventory">Submit</button>
     </form>
 </div>        
 </div>
