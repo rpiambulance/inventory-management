@@ -1,27 +1,35 @@
-<div class = "container rounded">
+<div *ngIf="thisInv.people.includes(loggedIn.userName); else noAccess">
 
-	<h1>{{ thisInv.name }}</h1>
+	<div class = "container rounded">
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th scope="col">Item</th>
-				<th scope="col">Quantity</th>
-			</tr>
-		</thead>
-		<tbody *ngFor="let item of thisInv?.items">
-			<tr>
-				<td>{{item.name}}</td>
-				<td>{{item.quantity}}</td>
-			</tr>
-		</tbody>
-	</table>
-
-	<button type="button" class="btn btn-primary mr-2" (click)="openAddItemForm()">Add Item</button>
-	<button type="button" class="btn btn-primary mr-2" (click)="openTakeInventory()">Take Inventory</button>
-	<button type="button" class="btn btn-primary mr-2" (click)="addPerson()">Add Person</button>
-  	<button *ngIf="loggedIn.userName == thisInv?.owner" type="button" class="btn btn-danger mr-2" (click)="removePerson()">Remove Person</button>
-	<button type="button" class="btn btn-primary mr-2" routerLink="/barcode/{{ id }}">View Barcodes</button>
-
+		<h1>{{ thisInv.name }}</h1>
+	
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Item</th>
+					<th scope="col">Quantity</th>
+				</tr>
+			</thead>
+			<tbody *ngFor="let item of thisInv?.items">
+				<tr>
+					<td>{{item.name}}</td>
+					<td>{{item.quantity}}</td>
+				</tr>
+			</tbody>
+		</table>
+	
+		<button type="button" class="btn btn-primary mr-2" (click)="openAddItemForm()">Add Item</button>
+		<button type="button" class="btn btn-primary mr-2" (click)="openTakeInventory()">Take Inventory</button>
+		<button type="button" class="btn btn-primary mr-2" (click)="addPerson()">Add Person</button>
+		  <button *ngIf="loggedIn.userName == thisInv?.owner" type="button" class="btn btn-danger mr-2" (click)="removePerson()">Remove Person</button>
+		<button type="button" class="btn btn-primary mr-2" routerLink="/barcode/{{ id }}">View Barcodes</button>
+	
+	</div>
+	
+	
 </div>
 
+<ng-template #noAccess>
+	<h1>You don't have permission :(</h1>
+</ng-template>
