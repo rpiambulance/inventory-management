@@ -11,38 +11,33 @@ import { Router } from '@angular/router';
   templateUrl: './remove-person.component.html',
   styleUrls: ['./remove-person.component.css']
 })
-export class RemovePersonComponent {
+export class RemovePersonComponent implements OnInit {
 
   removePersonForm: FormGroup;
-  users: any;
+  users: any = [];
   inv: Inventory;
   constructor(private fb: FormBuilder, public activeModal: NgbActiveModal, private userService: GetUsersService,
               private invService: InventoryService, private router: Router) {
     this.removePersonForm = new FormGroup({
       user: new FormControl('')
     });
-    // get the inventory data because asynchronous JS
-    this.invService.getInventory(window.location.pathname.split('/')[2]).subscribe((response) => {
-      console.log(response);
-      this.users = response.inventory.people;
-      this.inv = new Inventory(response.inventory);
-
-      // remove the owner's name from list of possible people to remove
-      const index = this.users.indexOf(this.inv.owner);
-      if (index !== -1) { this.users.splice(index, 1); }
-    });
   }
+
+  ngOnInit(): void {
+    for (const user of this.inv.people) {
+      this.users.push(user);
+    }
+    // remove the owner's name from list of possible people to remove
+    const index = this.users.indexOf(this.inv.owner);
+    if (index !== -1) { this.users.splice(index, 1); }
+  }
+
   onSubmit(): void {
-    console.log('Submitted');
-
     const person = this.removePersonForm.controls.user.value;
-
-    this.inv.people = this.inv.people.splice(this.inv.people.indexOf(person), 1);
-
+    this.inv.people.splice(this.inv.people.indexOf(person), 1);
     // make the post request to remove the person
     this.invService.removePerson(this.inv, person).subscribe((response) => {
       this.activeModal.close();
     });
   }
-
 }

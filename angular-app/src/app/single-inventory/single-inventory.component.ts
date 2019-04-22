@@ -102,7 +102,6 @@ export class SingleInventoryComponent implements OnInit {
   // Opens up the add person form modal
   addPerson(): void {
     const openModal = this.modal.open(AddPersonComponent, { size: 'lg' });
-
     openModal.componentInstance.inv = this.thisInv;
   }
 }
