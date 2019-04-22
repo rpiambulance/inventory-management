@@ -6,7 +6,6 @@
 </div>
 <div class="modal-body">
   <div class="container">
-    <h2>Add Person</h2>
     <div *ngIf="users?.length > 0;else noNew">
         <form [formGroup]="addPersonForm" (ngSubmit)="onSubmit()">
             <select class="custom-select custom-select-lg mb-3 rounded" formControlName="user">

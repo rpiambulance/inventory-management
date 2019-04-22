@@ -5,8 +5,7 @@
     </button>
 </div>
 <div class="modal-body">
-  <div class="container">
-      <h1>Add Item to Inventory</h1>      
+  <div class="container">   
       <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
         <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Add one more row of items" (click)="addItem()">Add Item</button>
         <div id="box" formArrayName="items" *ngFor="let item of addItemForm.get('items').controls; let i = index;">
