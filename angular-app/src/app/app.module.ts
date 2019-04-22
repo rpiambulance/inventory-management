@@ -19,6 +19,7 @@ import { RemovePersonComponent } from './remove-person/remove-person.component';
 import { TakeinventoryComponent } from './takeinventory/takeinventory.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RemoveInventoryComponent } from './remove-inventory/remove-inventory.component';
+import { UpdatequantityComponent } from './updatequantity/updatequantity.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RemoveInventoryComponent } from './remove-inventory/remove-inventory.co
     RemovePersonComponent,
     TakeinventoryComponent,
     AboutUsComponent,
-    RemoveInventoryComponent
+    RemoveInventoryComponent,
+    UpdatequantityComponent
   ],
   imports: [
     BrowserModule,

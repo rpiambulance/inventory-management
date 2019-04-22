@@ -15,6 +15,7 @@ import { BarcodeComponent } from './barcode/barcode.component';
 import { TakeinventoryComponent } from './takeinventory/takeinventory.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RemoveInventoryComponent } from './remove-inventory/remove-inventory.component';
+import { UpdatequantityComponent } from './updatequantity/updatequantity.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'removePerson', component: RemovePersonComponent, canActivate: [AuthGuard] },
   { path: 'barcode/:id', component: BarcodeComponent, canActivate: [AuthGuard] },
   { path: 'takeInventoryForm', component: TakeinventoryComponent, canActivate: [AuthGuard] },
+  { path: 'updateQuantityForm', component: UpdatequantityComponent, canActivate: [AuthGuard] },
   { path: 'about-us', component: AboutUsComponent},
   { path: 'removeInventory', component: RemoveInventoryComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/landing-page', pathMatch: 'full' }

@@ -14,7 +14,7 @@ export class TakeinventoryComponent {
   takeInventoryForm: FormGroup;
   items: FormArray;
   inv: Inventory;
-  constructor(private fb: FormBuilder, public activeModal: NgbActiveModal, private invService: InventoryService) { 
+  constructor(private fb: FormBuilder, public activeModal: NgbActiveModal, private invService: InventoryService) {
     this.takeInventoryForm = this.fb.group({
       items: this.fb.array([
         this.createItemControl()
@@ -31,6 +31,10 @@ export class TakeinventoryComponent {
     });
   }
 
+  switchMode(): void {
+    this.activeModal.close('switch');
+  }
+
   addItem(): void {
     this.items = this.takeInventoryForm.get('items') as FormArray;
     this.items.push(this.createItemControl());
@@ -40,10 +44,10 @@ export class TakeinventoryComponent {
     this.items.removeAt(index);
   }
 
-  onEnter(): void{
+  onEnter(): void {
     this.verifyBarcodes();
     // If it is valid then we can add the next control for another barcode
-    if(this.takeInventoryForm.valid){
+    if (this.takeInventoryForm.valid) {
       this.addItem();
     }
   }
@@ -84,8 +88,8 @@ export class TakeinventoryComponent {
         }
       }
       this.invService.updateInventory(this.inv).subscribe((res) => {
-        this.inv = res.inv;
-        this.activeModal.close();
+        this.inv = new Inventory(res.inv);
+        this.activeModal.close(this.inv);
       });
     }
   }

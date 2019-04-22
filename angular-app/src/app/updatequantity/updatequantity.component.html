@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h4 class="modal-title">Take Inventory via Name <a (click)="switchMode()">(By barcode instead?)</a></h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+<div class="container">
+    <h1>Take Inventory Via Name</h1>
+    <form [formGroup]="updateQuantityForm" (ngSubmit)="onSubmit()">
+      <div formArrayName="quantities" *ngFor="let quantities of updateQuantityForm.get('quantities').controls; let i = index;">
+        <div id="item" class="container">
+          <div class="row justify-content-between">
+              <div class="col-4">
+                {{itemName[i]}}
+              </div>
+              <div class="col-4">
+                <input [formControlName]="i" type="number" placeholder="Current Quantity of Item" required>
+              </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="!updateQuantityForm.valid">Submit</button>
+    </form>
+</div>        
+</div>
