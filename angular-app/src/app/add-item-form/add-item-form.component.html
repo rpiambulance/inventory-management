@@ -6,17 +6,17 @@
 </div>
 <div class="modal-body">
   <div class="container">
-      <h1>Add Item to Inventory</h1>
+      <h1>Add Item to Inventory</h1>      
       <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
-        <button type="button" class="btn btn-success" (click)="addItem()">Add Item</button>
-        <div formArrayName="items" *ngFor="let item of addItemForm.get('items').controls; let i = index;">
+        <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Add one more row of items" (click)="addItem()">Add Item</button>
+        <div id="box" formArrayName="items" *ngFor="let item of addItemForm.get('items').controls; let i = index;">
           <div [formGroupName]="i">
-            <input formControlName="name" placeholder="Item name" required>
-            <input formControlName="quantity" type="number" placeholder="Current Quantity of Item" required>
+            <input id="box1" formControlName="name" placeholder="Item name" required>
+            <input id="box2" formControlName="quantity" type="number" placeholder="Current Quantity of Item" required>
             <button *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
           </div>
         </div>
-        <button type="submit" [disabled]="!addItemForm.valid">Submit</button>
+        <button class="btn btn-warning" type="submit" [disabled]="!addItemForm.valid" data-toggle="tooltip" data-placement="top" title="Click submit when you finished adding items">Submit</button>
       </form>
   </div>        
 </div>

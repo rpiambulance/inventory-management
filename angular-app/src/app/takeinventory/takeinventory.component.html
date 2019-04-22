@@ -13,12 +13,12 @@
           <div [hidden]="item.controls.barcode.valid || item.controls.barcode.pristine" class="alert alert-danger">
             Invalid Barcode!
           </div>
-          <input formControlName="barcode" placeholder="Item's barcode" required>
-          <input formControlName="quantity" type="number" placeholder="Current Quantity of Item" (keydown.enter)="onEnter()"required>
+          <input id="box1" formControlName="barcode" placeholder="Item's barcode" required>
+          <input id="box2" formControlName="quantity" type="number" placeholder="Current Quantity of Item" (keydown.enter)="onEnter()"required>
           <button *ngIf="i != 0" type="button" class="btn btn-danger" (click)="removeItem(i)">X</button>
         </div>
       </div>
-      <button type="submit" [disabled]="!takeInventoryForm.valid">Submit</button>
+      <button class="btn btn-warning" type="submit" [disabled]="!takeInventoryForm.valid"data-toggle="tooltip" data-placement="top" title="Click submit when you finished taking inventory">Submit</button>
     </form>
 </div>        
 </div>

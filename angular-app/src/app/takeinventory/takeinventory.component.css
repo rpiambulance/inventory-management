@@ -1,0 +1,17 @@
+h1,h4 {
+    text-align: center;
+}
+.container {
+    background-color: #00c7ff;
+    border: 2px solid #191970;
+}
+button{/*spacing between the buttons*/
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+}
+#box1{/*spacing between each columns*/
+	margin-right: 5rem;
+}
+/*#box2{
+	float: right;
+}*/

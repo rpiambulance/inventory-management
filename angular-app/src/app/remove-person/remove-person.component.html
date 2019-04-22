@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title">Remove Person to Inventory</h4>
+  <h4 class="modal-title">Remove Person from Inventory</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -14,11 +14,11 @@
                   {{user}}
                 </option>
             </select>
-          <button type="submit">Submit</button>
+          <button class="btn btn-warning" type="submit" data-toggle="tooltip" data-placement="top" title="Click when you selected the person you want to remove">Submit</button>
         </form>
     </div>
     <ng-template #noNew>
-      <h2>There is no one to remove :(</h2>
+      <h2>Sorry.There is no one to remove :(</h2>
     </ng-template>
     
   </div>       
