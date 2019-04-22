@@ -4,4 +4,5 @@ h1{
 .container {
 	background-color: white;
 	border: 2px solid #191970;
+	font-size: 1rem;
 }
