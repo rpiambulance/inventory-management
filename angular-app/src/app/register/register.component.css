@@ -1,5 +1,8 @@
 .container {
     background-color: white;
-    border: 2px solid black;
-    padding-bottom:1em;
+    border: 0.2rem solid black;
+    padding-bottom:1rem;
+}
+label{
+	font-size: 1.5rem;
 }

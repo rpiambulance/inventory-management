@@ -1,13 +1,5 @@
-/*body {
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  font-size: 1.5rem;
-  color:blue;
-}*/
 body{
   padding-left: 10em;
-  /* padding: 5rem; */
 }
 
 #section-heading-lower{
@@ -19,12 +11,12 @@ body{
 }
 
 #card-text{
-
-  font-size: 10rem;
+  font-size: 7rem;
   color:blue;
 
 }
 .container{
+  font-size: 1.5rem;
   width: 100%;
   padding: 1rem;
   position: center;
@@ -32,7 +24,7 @@ body{
   padding-top: 2rem;
   margin-bottom: 0;/*remove the weird space between body and footer*/
   background-color: #00c7ff ;/*#bde0ff,alice blue*/
-  border: 2px solid black;
+  border: 0.3rem solid black;
 
 }
 
@@ -44,6 +36,7 @@ body{
   padding-left: 1rem;
   padding-right: 1rem;
   position: relative;
+  font-size: 1.5rem;
 }
 
 #img1{/*the image of inventory*/  
