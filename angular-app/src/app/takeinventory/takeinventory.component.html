@@ -5,8 +5,8 @@
   </button>
 </div>
 <div class="modal-body">
-<div class="container">
-    <h1>Take Inventory Via Barcode</h1>
+  <div class="container">
+    <p>Set quantity to a negative number to remove the item from your inventory.</p>
     <form [formGroup]="takeInventoryForm" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
       <div formArrayName="items" *ngFor="let item of takeInventoryForm.get('items').controls; let i = index;">
         <div [formGroupName]="i">
@@ -28,5 +28,5 @@
       </div>
       <button class="btn btn-success" type="submit" [disabled]="!takeInventoryForm.valid"data-toggle="tooltip" data-placement="top" title="Click submit when you finished taking inventory">Submit</button>
     </form>
-</div>        
+  </div>        
 </div>
