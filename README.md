@@ -1,5 +1,5 @@
-# ITWS-group1-section2
-ITWS Web Science Group 1 Section 2
+# Inventory Management System
+Created by: ITWS Web Science Group 1 Section 2
 
 Members: Logan Ramos, Andrew Qu, Jeff Fang, Jelly Wang
 
