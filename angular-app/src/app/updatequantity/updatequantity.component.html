@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title">Take Inventory via Name <a (click)="switchMode()">(By barcode instead?)</a></h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <button type="button" class="close btn btn-danger" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -15,12 +15,12 @@
                 {{itemName[i]}}
               </div>
               <div class="col-4">
-                <input [formControlName]="i" type="number" placeholder="Current Quantity of Item" required>
+                <input class="form-control form-control-lg rounded" [formControlName]="i" type="number" placeholder="Current Quantity of Item" required>
               </div>
           </div>
         </div>
       </div>
-      <button type="submit" [disabled]="!updateQuantityForm.valid">Submit</button>
+      <button class="btn btn-success" type="submit" [disabled]="!updateQuantityForm.valid" data-toggle="tooltip" data-placement="top" title="Click submit when you finished taking inventory">Submit</button>
     </form>
   </div>        
 </div>
